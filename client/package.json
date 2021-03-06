@@ -5,7 +5,11 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.4",
     "react": "^16.13.1",
+    "react-chartjs-2": "^2.11.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
