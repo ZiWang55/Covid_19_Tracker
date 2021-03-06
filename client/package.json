@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "Covid-19-Tracker",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Covid 19 tracker app",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
