@@ -32,19 +32,27 @@ const optInEmailList = [];
 // creates main Mailgun object to do work
 const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
 
+/**
+ *
+ * dailyEmailBlast() - this function will email everyone in our database that is opted in
+ *
+ */
+
 async function dailyEmailBlast() {
   // API call to get the relevant info for the email blast
   let dailyCases = await fetchDailyData();
+
+  // this will be the body text of the daily email blast
+  // the dailyCases stuff will need to be further deconstructed and
+  // styled appropriately
 
   const dailyEmailBlastText = `
 
   Hello from Your COVID-19 Tracker App!  You are receiving this email because you are opted to receive
   regular COVID-19 updates.  Below you will find the case counts for ${todaysDate}:
 
-  ${dailyCases}
+  ${dailyCases}`;
 
-
-`;
   // query database for all users that are opted-in for emails
   db.find({ opt_in: true }).then((optInList) => {
     // then extract the emails from each result in the list of ppl who have opted in
@@ -58,13 +66,41 @@ async function dailyEmailBlast() {
   const emailData = {
     from: "Covid-19 Tracker <noreply@covid-track3r-app.herokuapp.com>",
     to: optInEmailList,
-    subject: "Welcome to COVID-19 Tracker!",
+    subject: updateSubject,
     text: dailyEmailBlastText,
   };
 
   mg.messages().send(emailData, function (error, body) {
-    console.log("workin?", body);
+    console.log("working on sending those emails...", body);
   });
 }
 
-const welcomeSubject = "Welcome to COVID-19 Tracker!  Thanks for Signing Up.";
+/**
+ *
+ * welcomeEmail() - this function will email a new user a welcome email
+ *
+ */
+
+async function welcomeEmail(newUserEmailAddress) {
+  const welcomeSubject = "Welcome to COVID-19 Tracker!  Thanks for Signing Up.";
+  // this will be the body text of the daily email blast
+  // the dailyCases stuff will need to be further deconstructed and
+  // styled appropriately
+
+  const welcomeEmailBlastText = `
+  
+	Welcome to COVID-19 Tracker App!  You are receiving this email because you signed up to our website:
+	covid-track3r-app, hosted on Heroku at https://covid-track3r-app.herokuapp.com!  Thank you for joining.`;
+
+  // set up the specifics of the email
+  const emailData = {
+    from: "Covid-19 Tracker <noreply@covid-track3r-app.herokuapp.com>",
+    to: newUserEmailAddress,
+    subject: welcomeSubject,
+    text: welcomeEmailBlastText,
+  };
+
+  mg.messages().send(emailData, function (error, body) {
+    console.log("working on sending that welcome emails...", body);
+  });
+}
