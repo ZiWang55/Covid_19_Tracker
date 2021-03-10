@@ -27,17 +27,16 @@ class App extends React.Component {
 
   render() {
     const { data, country } = this.state;
-    return (
+    return (<div> <Navbar />
       <div className={styles.container}>
-        <Navbar />
-
+       
         <img className={styles.image} alt="covid-19" src={coronaImage} />
         
         <Cards data={data} />
         <hr />
         <CountryPicker handleCountryChange={this.handleCountryChange}/>
         <Chart data={data} country={country} />
-      </div>
+      </div></div>
     );
   }
 }
