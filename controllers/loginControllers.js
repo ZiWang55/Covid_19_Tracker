@@ -13,5 +13,12 @@ module.exports = {
             .then(data => data.remove())
             .then(console.log("User Deleted Succesfully"))
             .catch(err => res.status(422).json(err))
+    },
+    findById: function(req,res) {
+        db.Login
+            .findById(req.params.id)
+            .then(data => res.json(data))
+            .catch(err => res.status(422).json(err))
     }
+
 }
