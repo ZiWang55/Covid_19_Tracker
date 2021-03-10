@@ -15,7 +15,14 @@ const optInEmailList = [];
 const mg = mailgun({apiKey: API_KEY, domain: DOMAIN});
 
 // query database for all users that are opted-in for emails
-db.find({ opt_in : true }).then((emailList) => optInEmailList)
+db.find({ opt_in : true }).then((optInList) => {
+// then extract the emails from each result in the list of ppl who have opted in
+	optInList.filter((element) => {
+// add that email to a dedicated array we'll use as our final email list
+		optInEmailList.push(element.emailAddress)
+	})
+
+})
 
 
 
