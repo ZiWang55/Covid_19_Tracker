@@ -220,7 +220,17 @@ const loginSeed = [
   ]
 
 
+/**
+ * WARNING!! WARNING!! WARNING!! WARNING!! WARNING!! 
+ * 
+ *          THIS WILL WRITE TO THE PRODUCTION DATABASE ONLY RUN THIS SEED WHEN IT'S SAFE!
+ * 
+ * WARNING!! WARNING!! WARNING!! WARNING!! WARNING!! 
+ */
 
+
+// delete everything in the database first for a fresh reset
+// populate the covidtracker/logins collection with the dummy data
 
 db.deleteMany({})
 .then(() => db.insertMany(loginSeed))
