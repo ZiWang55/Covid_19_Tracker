@@ -1,3 +1,14 @@
+/**
+ * 
+ *  SEEDER FILE FOR DATABASE
+ * 
+ *  just run 'node seed.js' to remove everything in the database and add this dummy data
+ *  this file will need updating as we progress.  for instance, we'll need to replace the 
+ *  randomly generated password names for encrypted (bcrypt) passwords.  
+ * 
+ */
+
+
 const mongoose = require("mongoose");
 const db = require("../models/login");
 require("dotenv").config({ path: "../.env" });
