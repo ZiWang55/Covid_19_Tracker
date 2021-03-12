@@ -45,14 +45,18 @@ export default function SimpleModal() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Login</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <form>
+      {/* <p id="simple-modal-description">test description</p> */}
+      <form className="form-control">
         <label>
           Name:
           <input type="text" name="name" />
         </label>
+        <br></br>
+        <label>
+          Password:
+          <input type="text" name="name" />
+        </label>
+        <br></br>
         <input id="simple-modal-description" type="submit" value="Submit" />
       </form>
     </div>

@@ -21,12 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function callModal() {
-  return (
-    <Modal/>
-  )
-}
-
 export default function ButtonAppBar() {
   const classes = useStyles();
 
@@ -39,8 +33,7 @@ export default function ButtonAppBar() {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Home
-          </Typography>
-          
+          </Typography>         
           <Modal/>
         </Toolbar>
       </AppBar>
