@@ -5,6 +5,10 @@ import styles from './App.module.css';
 import { fetchData, fetchNews } from './api';
 import coronaImage from './images/image.png';
 
+function changeState() {
+  //changes state to James profile
+};
+
 class App extends React.Component {
   state = {
     data: {},
@@ -39,7 +43,7 @@ class App extends React.Component {
     const { data, country, news } = this.state;
     return (
       <div>
-        <Navbar />
+        <Navbar changeState={changeState}/>
         <div className={styles.container}>
           <img className={styles.image} alt='covid-19' src={coronaImage} />
 

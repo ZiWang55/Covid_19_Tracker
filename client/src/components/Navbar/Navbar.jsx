@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -34,7 +34,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Home
           </Typography>         
-          <Modal/>
+          <Modal changeState={props.changeState}/>
         </Toolbar>
       </AppBar>
     </div>
