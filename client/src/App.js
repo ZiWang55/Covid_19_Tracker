@@ -2,8 +2,9 @@ import React from 'react';
 
 import { Cards, Chart, CountryPicker, Navbar, News } from './components';
 import styles from './App.module.css';
-import { fetchData, fetchNews } from './api';
+import { fetchData } from './api';
 import coronaImage from './images/image.png';
+import fetchNews from './components/FetchNews';
 
 class App extends React.Component {
   state = {
@@ -16,15 +17,12 @@ class App extends React.Component {
     const fetchedData = await fetchData();
     // console.log(fetchedData);
     this.setState({ ...this.state, data: fetchedData });
-  }
 
-  //getting news data from API to display on News component
-  async componentDidMount() {
     const fetchedNews = await fetchNews();
-    // console.log('fetchedNews', fetchedNews.data);
+    // console.log('fetchedNews', fetchedNews);
 
     // set the news state to use as props
-    this.setState({ ...this.state, news: fetchedNews.data.response });
+    // this.setState({ ...this.state, news: fetchedNews.data.response });
   }
 
   handleCountryChange = async (country) => {
