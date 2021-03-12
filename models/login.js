@@ -27,6 +27,9 @@ const loginSchema = new Schema(
     },
     opt_in: {
       type: Boolean
+    },
+    date: {
+      type: Date
     }
   }
 );
