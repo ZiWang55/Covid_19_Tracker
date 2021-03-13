@@ -1,7 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import {styled} from '@material-ui/core/styles'
 import Modal from "@material-ui/core/Modal";
 import Button from '@material-ui/core/Button';
+
+const MyButton = styled(Button)({
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+});
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -29,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -46,24 +57,29 @@ export default function SimpleModal() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Login</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <form>
+      {/* <p id="simple-modal-description">test description</p> */}
+      <form className="form-control">
         <label>
           Name:
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={props.handleInputName} />
         </label>
-        <input id="simple-modal-description" type="submit" value="Submit" />
+        <br></br>
+        <label>
+          Password:
+          <input type="text" name="name" onChange={props.handleInputPassword} />
+        </label>
+        <br></br>
+        {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
+        <button onClick={props.changeUser}>Login</button>
       </form>
     </div>
   );
 
   return (
     <div>
-      <Button type="button" onClick={handleOpen}>
+      <MyButton type="button" onClick={handleOpen}>
         Login
-      </Button>
+      </MyButton>
       <Modal
         open={open}
         onClose={handleClose}
