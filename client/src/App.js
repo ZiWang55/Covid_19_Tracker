@@ -40,7 +40,6 @@ class App extends React.Component {
         <Navbar />
         <div className={styles.container}>
           <img className={styles.image} alt='covid-19' src={coronaImage} />
-
           <Cards data={data} />
           <hr />
           <CountryPicker handleCountryChange={this.handleCountryChange} />
