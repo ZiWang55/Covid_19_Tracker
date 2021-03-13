@@ -5,6 +5,8 @@ import axios from 'axios';
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from '@material-ui/core/Link'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(1)
-      // width: theme.spacing('75%'),
-      // height: theme.spacing('100%')
+    
     }
+   
   }
 }));
 
@@ -48,20 +50,20 @@ function News(props) {
       <Container>
         <Typography
           component="div"
-          style={{ color: 'grey', backgroundColor: "cream", height: "100%", padding: 10}}
+          style={{ color: 'black', backgroundColor: "white", height: "100%", padding: 10}}
         >
-          <h3 style={{textAlign: 'center'}}>Coronavirus News</h3>
+          <h3 style={{textAlign: 'center',}}>Coronavirus News</h3>
 
     <div className={classes.root}>
       
-        
-
         <ul>
           {newsData?.docs
             ? newsData.docs.map((item, i) => (
                 <>
                   <li key={i + 'li'}>
-                    <a href={item.web_url}>{item.abstract}</a>
+                    <Link  href={item.web_url}color="inherit"
+                  >{item.abstract}
+                    </Link>
                   </li>
                 </>
               ))
