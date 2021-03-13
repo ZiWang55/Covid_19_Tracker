@@ -8,25 +8,14 @@ import fetchNews from "../components/FetchNews";
 import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
-}));
-
 class App extends React.Component {
   state = {
     data: {},
     country: "",
     news: "",
-  }
+  };
 
-    async componentDidMount() {
+  async componentDidMount() {
     const fetchedData = await fetchData();
     // console.log(fetchedData);
     this.setState({ ...this.state, data: fetchedData });
@@ -38,7 +27,7 @@ class App extends React.Component {
     // this.setState({ ...this.state, news: fetchedNews.data.response });
   }
 
-    handleCountryChange = async (country) => {
+  handleCountryChange = async (country) => {
     const fetchedData = await fetchData(country);
     // console.log('fetcheddata', fetchedData);
 
@@ -46,40 +35,41 @@ class App extends React.Component {
     this.setState({ ...this.state, data: fetchedData, country });
   };
 
-
   render() {
     const { data, country, news } = this.state;
-  return (
-    
-    <div className={classNames.root}>
-    <div className={styles.container}>
-      <img className={styles.image} alt="covid-19" src={coronaImage} />
+    return (
+      <div className={classNames.root}>
+        <div className={styles.container}>
+          <img className={styles.image} alt="covid-19" src={coronaImage} />
 
-      <Grid
-        container
-        direction="row"
-        justify="space-around"
-        alignItems="center"
-      >
-        <Grid direction="column" item xs={12} md={4}>
-          <Cards data={data} />
-        </Grid>
+          <Grid
+            container
+            spacing={0}
+            direction="row"
+            justify="center"
+            alignItems="center"
+            style={{ minHeight: "50vh" }}
+          >
+            <Grid direction="column" item xs={12} md={4}>
+              <Cards data={data} />
+            </Grid>
 
-        <Grid direction="column" justify="center" item xs={12} md={8}>
-          <CountryPicker handleCountryChange={this.handleCountryChange} />
+            <Grid direction="column" item xs={12} md={8}>
+              <Grid container justify="center" alignItems="center"  style={{ minHeight: "10vh" }}>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+              </Grid>
 
-          <Chart data={data} country={country} />
-        </Grid>
-      </Grid>
+              <Chart data={data} country={country} />
+            </Grid>
+          </Grid>
 
-      <hr />
+          <hr />
 
-      <News docs={news.docs} />
-    </div>
-  </div>
-  
-  );
-}
+          <News docs={news.docs} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

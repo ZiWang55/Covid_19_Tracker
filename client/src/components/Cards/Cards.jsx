@@ -7,8 +7,6 @@ import {
   StylesProvider,
 } from "@material-ui/core";
 import CountUp from "react-countup";
-import cx from "classnames";
-import styles from "./Cards.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { fetchVaccine } from '../../api';
 
