@@ -47,3 +47,19 @@ export const fetchCountries = async () => {
     console.log(error);
   }
 };
+
+
+export const fetchVaccine = async () => {
+  let totalVacs = 0;
+  try {
+    const data = await axios.get('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json');
+    console.log(data);
+    for (let i = 0; i < data.data.length; i++) {
+      totalVacs += parseInt(data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
+      console.log("our data", data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
+    };
+    console.log("total", totalVacs)
+  } catch (error) {
+    console.log(error);
+  }
+};

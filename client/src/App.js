@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/Wrapper/Wrapper";
+import { fetchVaccine } from './api';
 
 function App() {
   
@@ -29,6 +30,10 @@ function App() {
     console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value);
     setPassword(event.target.value);
   };
+
+  useEffect ( async () => {
+    await fetchVaccine();
+  }, [])
 
     return (
         <Router>
