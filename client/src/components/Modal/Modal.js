@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -57,15 +57,20 @@ export default function SimpleModal() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Login</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      <form>
+      {/* <p id="simple-modal-description">test description</p> */}
+      <form className="form-control">
         <label>
           Name:
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={props.handleInputName} />
         </label>
-        <input id="simple-modal-description" type="submit" value="Submit" />
+        <br></br>
+        <label>
+          Password:
+          <input type="text" name="name" onChange={props.handleInputPassword} />
+        </label>
+        <br></br>
+        {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
+        <button onClick={props.changeUser}>Login</button>
       </form>
     </div>
   );
