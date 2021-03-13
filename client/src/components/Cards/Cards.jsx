@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import CountUp from "react-countup";
 import { makeStyles } from "@material-ui/core/styles";
+import { fetchVaccine } from '../../api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +23,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  const [vacs, setVacs] = useState (0)
   /*  console.log('props', props); */
+  let totalVacs = 0
+  
+  useEffect ( async () => {
+    let totalVacs = await fetchVaccine();
+    console.log("totalVacs", totalVacs)
+    setVacs(totalVacs)
+    return totalVacs
+  }, [])
+
+  // async function getVacs() {
+  //   let totalVacs = await fetchVaccine();
+  //   console.log("totalVacs", totalVacs)
+  //   return totalVacs
+  // }
 
   // console.log(confirmed);
   const classes = useStyles();
@@ -86,7 +102,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           <Typography variant="h5">
             <CountUp
               start={0}
-              end={deaths.value}
+              end={vacs}
               duration={2.5}
               separator=","
             />
