@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { CountryPicker } from '../components';
+require('dotenv').config({ path: '../../.env' });
 
 const url = 'https://covid19.mathdro.id/api';
 
@@ -42,17 +43,6 @@ export const fetchCountries = async () => {
       data: { countries }
     } = await axios.get(`${url}/countries`);
     return countries.map((country) => country.name);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const fetchNews = async () => {
-  let newsUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=fbrvH7jWZvp54ZAxCG4XXdXXau5G5vrA';
-
-  try {
-    const res = await axios.get(newsUrl);
-    return res;
   } catch (error) {
     console.log(error);
   }
