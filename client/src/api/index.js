@@ -56,7 +56,7 @@ export const fetchVaccine = async () => {
     console.log(data);
     for (let i = 0; i < data.data.length; i++) {
       totalVacs += parseInt(data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
-      console.log("our data", data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
+      /* console.log("our data", data.data[i].data[data.data[i].data.length - 1].total_vaccinations) */
     };
     console.log("total", totalVacs)
     return totalVacs;

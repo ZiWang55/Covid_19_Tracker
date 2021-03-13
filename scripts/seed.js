@@ -10,8 +10,10 @@
 
 const mongoose = require("mongoose");
 const db = require("../models/login");
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: ".env" });
+const bcrypt = require('bcryptjs')
 
+console.log(process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
@@ -19,39 +21,42 @@ mongoose.connect(process.env.MONGODB_URI, {
   useCreateIndex: true,
 });
 
+/* db.addHook("beforeCreate", (user) => {
+  user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+}); */
 // big json array of 24 randomly generated users (minimized for brevity)
 const loginSeed = [
   {
     name: "Troy Dorman",
-    password: "password",
+    password: bcrypt.hashSync("password", bcrypt.genSaltSync(10), null),
     county: "Canyon",
     email: "troydorman@gmail.com",
     opt_in: true,
   },
   {
     name: "Zi Wang",
-    password: "password",
+    password: bcrypt.hashSync("password", bcrypt.genSaltSync(10), null),
     county: "Hennepin",
     email: "ziwang55@gmail.com",
     opt_in: true,
   },
   {
     name: "James Leitschuh",
-    password: "password",
+    password: bcrypt.hashSync("password", bcrypt.genSaltSync(10), null),
     county: "Hennepin",
     email: "james.leitschuh02@gmail.com",
     opt_in: true,
   },
   {
     name: "Kai Dong",
-    password: "password",
+    password: bcrypt.hashSync("password", bcrypt.genSaltSync(10), null),
     county: "Hennepin",
     email: "dongkai981@gmail.com",
     opt_in: true,
   },
   {
     name: "Peter Phenow",
-    password: "password",
+    password: bcrypt.hashSync("password", bcrypt.genSaltSync(10), null),
     county: "Hennepin",
     email: "peter.phenow@gmail.com",
     opt_in: true,
