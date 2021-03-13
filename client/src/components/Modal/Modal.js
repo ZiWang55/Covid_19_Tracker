@@ -50,12 +50,12 @@ export default function SimpleModal(props) {
       <form className="form-control">
         <label>
           Name:
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={props.handleInputName} />
         </label>
         <br></br>
         <label>
           Password:
-          <input type="text" name="name" />
+          <input type="text" name="name" onChange={props.handleInputPassword} />
         </label>
         <br></br>
         {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}

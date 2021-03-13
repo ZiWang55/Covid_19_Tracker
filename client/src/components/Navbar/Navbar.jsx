@@ -33,7 +33,7 @@ export default function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             Home
           </Typography>
-          <Modal changeUser={props.changeUser}/>
+          <Modal changeUser={props.changeUser} handleInputName={props.handleInputName} handleInputPassword={props.handleInputPassword} />
         </Toolbar>
       </AppBar>
     </div>
