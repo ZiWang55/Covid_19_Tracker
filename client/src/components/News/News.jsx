@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,9 +43,18 @@ function News(props) {
   // console.log('newsData?.docs', newsData?.docs);
 
   return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container>
+        <Typography
+          component="div"
+          style={{ color: 'grey', backgroundColor: "cream", height: "100%", padding: 10}}
+        >
+          <h3 style={{textAlign: 'center'}}>Coronavirus News</h3>
+
     <div className={classes.root}>
-      <Paper>
-        <h3>Coronavirus News</h3>
+      
+        
 
         <ul>
           {newsData?.docs
@@ -55,8 +67,11 @@ function News(props) {
               ))
             : 'No data found'}
         </ul>
-      </Paper>
+   
     </div>
+    </Typography>
+      </Container>
+    </React.Fragment>
   );
 }
 
