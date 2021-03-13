@@ -1,55 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Wrapper from "./components/Wrapper/Wrapper";
 
-import { Cards, Chart, CountryPicker, Navbar, News } from './components';
-import styles from './App.module.css';
-import { fetchData } from './api';
-import coronaImage from './images/image.png';
-import fetchNews from './components/FetchNews';
+function App() {
+  
+  const [user, setUser] = useState('testName');
+  const [password, setPassword] = useState('testPassword');
 
-class App extends React.Component {
-  state = {
-    data: {},
-    country: '',
-    news: ''
+  const showUser = () => {
+    console.log("THE USER IS ", user);
+  };
+  
+  const changeUser = () => {
+    console.log("THE NEW USER IS ", user);
+    console.log("THE NEW PASSWORD IS ", password);
+  };
+  
+  const handleInputName = event => {
+    event.preventDefault();
+    console.log("YOUR NAME IS ", event.target.value);
+    setUser(event.target.value);
+  };
+  
+  const handleInputPassword = event => {
+    event.preventDefault();
+    console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value);
+    setPassword(event.target.value);
   };
 
-  async componentDidMount() {
-    const fetchedData = await fetchData();
-    // console.log(fetchedData);
-    this.setState({ ...this.state, data: fetchedData });
-
-    const fetchedNews = await fetchNews();
-    // console.log('fetchedNews', fetchedNews);
-
-    // set the news state to use as props
-    // this.setState({ ...this.state, news: fetchedNews.data.response });
-  }
-
-  handleCountryChange = async (country) => {
-    const fetchedData = await fetchData(country);
-    // console.log('fetcheddata', fetchedData);
-
-    // set the state
-    this.setState({ ...this.state, data: fetchedData, country });
-  };
-
-  render() {
-    const { data, country, news } = this.state;
     return (
-      <div>
-        <Navbar />
-        <div className={styles.container}>
-          <img className={styles.image} alt='covid-19' src={coronaImage} />
-
-          <Cards data={data} />
-          <hr />
-          <CountryPicker handleCountryChange={this.handleCountryChange} />
-          <Chart data={data} country={country} />
-          <News docs={news.docs} />
-        </div>
-      </div>
+        <Router>
+            <div>
+            <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} />
+                <Wrapper>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/home" component={Home} />
+                </Wrapper>
+            </div>
+        </Router>
     );
-  }
 }
 
 export default App;
