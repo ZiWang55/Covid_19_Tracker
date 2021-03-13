@@ -6,15 +6,12 @@ import { fetchData } from './api';
 import coronaImage from './images/image.png';
 import fetchNews from './components/FetchNews';
 
-function changeState() {
-  //changes state to James profile
-};
-
 class App extends React.Component {
   state = {
     data: {},
     country: '',
-    news: ''
+    news: '',
+    user: "James"
   };
 
   async componentDidMount() {
@@ -37,11 +34,21 @@ class App extends React.Component {
     this.setState({ ...this.state, data: fetchedData, country });
   };
 
+  showUser = () => {
+    console.log("THE USER IS ", this.state.user);
+  }
+
+  changeUser = () => {
+    this.state.user = "Bob";
+    console.log("THE NEW USER IS ", this.state.user);
+  };
+
   render() {
     const { data, country, news } = this.state;
+    this.showUser();
     return (
       <div>
-        <Navbar changeState={changeState}/>
+        <Navbar changeUser={this.changeUser}/>
         <div className={styles.container}>
           <img className={styles.image} alt='covid-19' src={coronaImage} />
 

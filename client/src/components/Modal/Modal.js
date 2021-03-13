@@ -57,7 +57,8 @@ export default function SimpleModal(props) {
           <input type="text" name="name" />
         </label>
         <br></br>
-        <input id="simple-modal-description" type="submit" value="Submit" onClick={props.handleChangeName} />
+        {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
+        <button onClick={props.changeUser}>Login</button>
       </form>
     </div>
   );
