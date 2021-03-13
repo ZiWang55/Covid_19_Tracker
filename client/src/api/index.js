@@ -59,6 +59,7 @@ export const fetchVaccine = async () => {
       console.log("our data", data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
     };
     console.log("total", totalVacs)
+    return totalVacs;
   } catch (error) {
     console.log(error);
   }
