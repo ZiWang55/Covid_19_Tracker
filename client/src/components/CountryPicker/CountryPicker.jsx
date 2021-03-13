@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { NativeSelect, FormControl } from '@material-ui/core';
-import styles from './CountryPicker.module.css';
 import { fetchCountries } from '../../api';
+import { makeStyles } from '@material-ui/core/styles';
 
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
 const CountryPicker = ({ handleCountryChange }) => {
   const [fetchedCountries, setFetchedCountries] = useState([]);
@@ -16,10 +24,11 @@ const CountryPicker = ({ handleCountryChange }) => {
     fetchAPI();
   }, [setFetchedCountries]);
 
+  const classes = useStyles();
   // console.log(fetchedCountries);
 
   return (
-    <FormControl className={styles.formControl}>
+    <FormControl className={classes.root}>
       <NativeSelect defaultValue='' onChange={(e) => handleCountryChange(e.target.value)}>
         <option value=''>Global</option>
         {fetchedCountries.map((country, i) => (
@@ -31,5 +40,4 @@ const CountryPicker = ({ handleCountryChange }) => {
     </FormControl>
   );
 };
-
 export default CountryPicker;
