@@ -9,6 +9,7 @@ const app = express();
 require('dotenv').config();
 const axios = require('axios');
 var passport = require("./config/passport");
+var isAuthenticated = require("./config/middleware/isAuthenticated");
 
 
 // Define middleware here
@@ -55,6 +56,10 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
  
   
   res.json(req.user);
+});
+
+app.get("/members", isAuthenticated, function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/members.html"));
 });
 
 app.listen(PORT, () => {
