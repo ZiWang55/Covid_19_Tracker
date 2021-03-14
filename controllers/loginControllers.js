@@ -2,10 +2,10 @@ const db = require("../models");
 
 module.exports = {
     create: function(req,res) {
-        console.log("we made it here!");
+        console.log("OUR REQUEST.BODY IS", req.body);
         db.Login
             .create(req.body)
-            .then(data => res.json(data))
+            .then(dbModel => res.json(dbModel))
             .error(err => res.status(422).json(err));
     },
     remove: function(req,res) {

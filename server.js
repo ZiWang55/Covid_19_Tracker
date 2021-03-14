@@ -3,17 +3,21 @@ const path = require('path');
 const mongoose = require('mongoose');
 const compression = require('compression');
 // const nodemailer = require('nodemailer')
-const routes = require('./routes')
+const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 require('dotenv').config();
 const axios = require('axios');
+var passport = require("./config/passport");
+var isAuthenticated = require("./config/middleware/isAuthenticated");
 
-// adding a useless comment
+
 // Define middleware here
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
@@ -34,16 +38,17 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/covidtracker', 
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, './client/build/index.html'));
+// });
 
 app.get('/api/news', async (req, res) => {
   let newsUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=coronavirus&api-key=' + process.env.REACT_APP_NEWS_API_KEY;
   
   try {
     const response = await axios.get(newsUrl);
-    console.log('response', response.data);
+    /* console.log('response', response.data); */
     res.send(response.data);
   } catch (error) {
     console.log(error);

@@ -15,20 +15,41 @@ function App() {
     console.log("THE USER IS ", user);
   };
   
-  const changeUser = () => {
+  const changeUser = event => {
+    event.preventDefault();
+   
+   
+    console.log(event.target.parentNode.nameInput.value)
+    console.log(event.target.parentNode.passwordInput.value)
+    let email = event.target.parentNode.nameInput.value
+    let password = event.target.parentNode.passwordInput.value
     console.log("THE NEW USER IS ", user);
     console.log("THE NEW PASSWORD IS ", password);
+
+    $.post("/api/login", {
+      email: email,
+      password: password
+    })
+      .then(function(response) {
+        /* window.location.replace("/members"); */
+        // If there's an error, log the error
+        console.log('post route worked, this is the .then!', response);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+
   };
   
   const handleInputName = event => {
     event.preventDefault();
-    console.log("YOUR NAME IS ", event.target.value);
+   /*  console.log("YOUR NAME IS ", event.target.value); */
     setUser(event.target.value);
   };
   
   const handleInputPassword = event => {
     event.preventDefault();
-    console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value);
+    /* console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value); */
     setPassword(event.target.value);
   };
 
