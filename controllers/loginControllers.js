@@ -2,6 +2,7 @@ const db = require("../models");
 
 module.exports = {
     create: function(req,res) {
+        console.log("we made it here!");
         db.Login
             .create(req.body)
             .then(data => res.json(data))

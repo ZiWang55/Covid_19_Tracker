@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const booksController = require("../../controllers/loginControllers");
+const loginController = require('../../controllers/loginControllers');
 
-// Matches with "/api/books"
+// Matches with "/api/users"
 router.route("/")
-  .post(.create);
+  .post(loginController.create);
 
 module.exports = router;
