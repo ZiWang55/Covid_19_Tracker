@@ -5,8 +5,13 @@ module.exports = {
         console.log("OUR REQUEST.BODY IS", req.body);
         db.Login
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .error(err => res.status(422).json(err));
+            .then(dbModel => 
+                {
+                    console.log(dbModel);
+                    res.json(dbModel);
+                })
+            // .catch(err => res.status(422).json(err));
+            .catch((err) => console.log(err));
     },
     remove: function(req,res) {
         db.Login
@@ -27,5 +32,11 @@ module.exports = {
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
+    findAll: function(req,res) {
+        db.Login
+            .find(req.query)
+            .then(data => res.json(data))
+            .catch(err => res.status(422).json(err));
+    }
     
 };

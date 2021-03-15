@@ -13,7 +13,9 @@ function NewUser() {
             password: NewUser.password,
             county: NewUser.county
           })
-            .then(res => console.log("great job!"))
+            .then(res => {
+                console.log("OUR RES IS ", res);
+            })
             .catch(err => console.log(err));   
       };
 
@@ -21,6 +23,15 @@ function NewUser() {
         const { name, value } = event.target;
         setNewUser({...NewUser, [name]: value})
       };
+
+      function showUsers(event) {
+          event.preventDefault();
+          API.getUsers()
+          .then(res => {console.log("OUR RES IS ", res);})
+          .catch((err) => console.log(err))
+        };
+        
+    
 
 
     return(
@@ -48,6 +59,8 @@ function NewUser() {
                 <br></br>
             </form>
             <button onClick={handleFormSubmit}>Create User</button>
+            <br></br>
+            <button onClick={showUsers}>Show Users</button>
         </Wrapper>
     );
 }
