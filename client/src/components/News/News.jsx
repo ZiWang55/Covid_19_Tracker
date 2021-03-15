@@ -43,7 +43,7 @@ function News(props) {
 
   const classes = useStyles();
 
-  console.log('newsData', newsData);
+  // console.log('newsData', newsData);
   // console.log('newsData?.docs', newsData?.docs);
 
   return (
@@ -56,22 +56,24 @@ function News(props) {
             <ListSubheader component='div'>Coronavirus News</ListSubheader>
           </GridListTile>
           {newsData?.docs
-            ? newsData.docs.map((item, i) => (
-                <GridListTile key={i}>
-                  <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
-                  <a href={item.web_url}>
-                    <GridListTileBar
-                      title={item.headline.main}
-                      subtitle={<span>{item.byline.original}</span>}
-                      // actionIcon={
-                      //   <IconButton aria-label={`info about ${item.headline.main}`} className={classes.icon}>
-                      //     <InfoIcon />
-                      //   </IconButton>
-                      // }
-                    />
-                  </a>
-                </GridListTile>
-              ))
+            ? newsData.docs
+                .filter((item) => item.multimedia.length !== 0)
+                .map((item, i) => (
+                  <GridListTile key={i}>
+                    <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
+                    <a href={item.web_url}>
+                      <GridListTileBar
+                        title={item.headline.main}
+                        subtitle={<span>{item.byline.original}</span>}
+                        // actionIcon={
+                        //   <IconButton aria-label={`info about ${item.headline.main}`} className={classes.icon}>
+                        //     <InfoIcon />
+                        //   </IconButton>
+                        // }
+                      />
+                    </a>
+                  </GridListTile>
+                ))
             : 'No data found'}
         </GridList>
       </div>
