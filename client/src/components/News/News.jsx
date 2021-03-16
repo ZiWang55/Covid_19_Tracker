@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
     backgroundColor: 'lightgrey',
     borderRadius: '15px 15px 0 0',
-    fontSize: '1.2em',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: '1.2em'
   },
   gridList: {
     width: '75%'
