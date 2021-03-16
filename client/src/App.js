@@ -55,13 +55,13 @@ function App() {
   
   const handleInputName = event => {
     event.preventDefault();
-   /*  console.log("YOUR NAME IS ", event.target.value); */
+    console.log("YOUR NAME IS ", event.target.value);
     setUser(event.target.value);
   };
   
   const handleInputPassword = event => {
     event.preventDefault();
-    /* console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value); */
+    console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value);
     setPassword(event.target.value);
   };
 
