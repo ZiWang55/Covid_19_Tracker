@@ -3,7 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const compression = require('compression');
 // const nodemailer = require('nodemailer')
-// const routes = require('./routes');
+const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 require('dotenv').config();
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Define API routes here
-// app.use(routes);
+app.use(routes);
 
 // Connected to MongoDB
 mongoose.connect(
