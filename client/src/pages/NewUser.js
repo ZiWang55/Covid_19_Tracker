@@ -27,7 +27,7 @@ function NewUser() {
       function showUsers(event) {
           event.preventDefault();
           API.getUsers()
-          .then(res => {console.log("OUR RES IS ", res);})
+          .then(res => {console.log("OUR USERS ARE ", res);})
           .catch((err) => console.log(err))
         };
         

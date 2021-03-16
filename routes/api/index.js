@@ -1,9 +1,10 @@
 const router = require('express').Router();
+require('dotenv').config({ path: '../.env' });
+
 const loginRoute = require('./login');
 const homepageRoute = require('./homepage');
 const settingsRoute = require('./settings');
 const newUserRoute = require('./newUser');
-require('dotenv').config({ path: '../.env' });
 
 // Our routes here!
 router.use("/login", loginRoute);

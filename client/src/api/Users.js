@@ -6,5 +6,8 @@ export default {
     },
     getUsers: function() {
         return axios.get("/api/users");
+    },
+    checkUser: function(userData) {
+        return axios.post("/api/login", userData);
     }
 };

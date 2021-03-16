@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NewUser from './pages/NewUser'
 import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/Wrapper/Wrapper";
+import API from './api/Users';
 
 
 function App() {
@@ -19,12 +20,13 @@ function App() {
     event.preventDefault();
    
    
-    console.log(event.target.parentNode.nameInput.value)
-    console.log(event.target.parentNode.passwordInput.value)
+    console.log("AUTHENTICATION EMAIL ", event.target.parentNode.nameInput.value)
+    console.log("AUTHENTICATION PASSWORD ", event.target.parentNode.passwordInput.value)
     let email = event.target.parentNode.nameInput.value
     let password = event.target.parentNode.passwordInput.value
-    console.log("THE NEW USER IS ", user);
-    console.log("THE NEW PASSWORD IS ", password);
+    
+    // console.log("THE NEW USER IS ", user);
+    // console.log("THE NEW PASSWORD IS ", password);
 
     $.post("/api/login", {
       email: email,
@@ -39,6 +41,16 @@ function App() {
         console.log(err);
       });
 
+    // API.checkUser({
+    //   email: email,
+    //   password: password
+    // })
+    // .then(res => {
+    //   console.log("AUTHENTICATION ROUTE ", res);
+    // })
+    // .catch(err => {
+    //   console.log("POST ROUTE ERROR ", err);
+    // });
   };
   
   const handleInputName = event => {
