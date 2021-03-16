@@ -18,10 +18,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden'
-
-    // '& > *': {
-    //   margin: theme.spacing(1)
-    // }
   },
   title: {
     display: 'flex',
@@ -81,15 +77,7 @@ function News(props) {
                   <GridListTile key={i}>
                     <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
                     <a href={item.web_url}>
-                      <GridListTileBar
-                        title={item.headline.main}
-                        subtitle={<span>{item.byline.original}</span>}
-                        // actionIcon={
-                        //   <IconButton aria-label={`info about ${item.headline.main}`} className={classes.icon}>
-                        //     <InfoIcon />
-                        //   </IconButton>
-                        // }
-                      />
+                      <GridListTileBar title={item.headline.main} subtitle={<span>{item.byline.original}</span>} />
                     </a>
                   </GridListTile>
                 ))
@@ -101,25 +89,3 @@ function News(props) {
 }
 
 export default News;
-
-{
-  /* <Container>
-  <Typography component='div' style={{ color: 'grey', backgroundColor: 'cream', height: '100%', padding: 10 }}>
-    <h3 style={{ textAlign: 'center' }}>Coronavirus News</h3>
-
-    <div className={classes.root}>
-      <ul>
-        {newsData?.docs
-          ? newsData.docs.map((item, i) => (
-              <>
-                <li key={i + 'li'}>
-                  <a href={item.web_url}>{item.abstract}</a>
-                </li>
-              </>
-            ))
-          : 'No data found'}
-      </ul>
-    </div>
-  </Typography>
-</Container>; */
-}
