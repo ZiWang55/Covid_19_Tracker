@@ -44,7 +44,7 @@ function News(props) {
   const classes = useStyles();
 
   // console.log('newsData', newsData);
-  // console.log('newsData?.docs', newsData?.docs);
+  console.log('newsData?.docs', newsData?.docs);
 
   return (
     <React.Fragment>
@@ -58,6 +58,7 @@ function News(props) {
           {newsData?.docs
             ? newsData.docs
                 .filter((item) => item.multimedia.length !== 0)
+                .slice(0, 8)
                 .map((item, i) => (
                   <GridListTile key={i}>
                     <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
