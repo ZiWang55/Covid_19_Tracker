@@ -3,6 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import {styled} from '@material-ui/core/styles'
 import Modal from "@material-ui/core/Modal";
 import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import Slide from '@material-ui/core/Slide';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
+
+
 
 const MyButton = styled(Button)({
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
@@ -29,11 +38,15 @@ function getModalStyle() {
   };
 }
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
+    width: '400',
+    backgroundColor: 'grey',
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -55,24 +68,60 @@ export default function SimpleModal(props) {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Login</h2>
+    // <Grid>
+    <Dialog  open={open}
+    TransitionComponent={Transition}
+    keepMounted
+    onClose={handleClose}
+    aria-labelledby="alert-dialog-slide-title"
+    aria-describedby="alert-dialog-slide-description"
+   
+  >
+    {/* <div  style={modalStyle} className={classes.paper}> */}
+    <DialogTitle id="alert-dialog-slide-title">{"Login"}</DialogTitle>
+      {/* <h2 id="simple-modal-title">Login</h2> */}
       {/* <p id="simple-modal-description">test description</p> */}
-      <form className="form-control">
-        <label>
-          Name:
-          <input type="text" name="nameInput" onChange={props.handleInputName} />
-        </label>
-        <br></br>
-        <label>
-          Password:
+   
+      <DialogContent >
+          <DialogContentText id="alert-dialog-slide-description">
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            onChange={props.handleInputName}
+          />
+          {/* Name:
+          <input type="text" name="nameInput"  />
+        */}
+     
+        <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Password"
+            type="password"
+            fullWidth
+            onChange={props.handleInputPassword}
+          />
+          {/* Password:
           <input type="text" name="passwordInput" onChange={props.handleInputPassword} />
-        </label>
-        <br></br>
+        */}
+        
+        </DialogContentText>
+        </DialogContent>
+       
+        <DialogActions>
         {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
-        <button onClick={props.changeUser}>Login</button>
-      </form>
-    </div>
+        <Button onClick={props.changeUser}>Login</Button>
+        <Button onClick>Close</Button>
+        </DialogActions>
+    
+    {/* </div> */}
+    </Dialog>
+    // </Grid>
   );
 
   return (

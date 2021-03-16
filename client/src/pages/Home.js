@@ -55,7 +55,12 @@ class App extends React.Component {
             </Grid>
 
             <Grid direction="column" item xs={12} md={8}>
-              <Grid container justify="center" alignItems="center"  style={{ minHeight: "10vh" }}>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                style={{ minHeight: "10vh" }}
+              >
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
               </Grid>
 
