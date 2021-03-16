@@ -16,9 +16,25 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1)
-    }
+    justifyContent: 'space-around',
+    overflow: 'hidden'
+
+    // '& > *': {
+    //   margin: theme.spacing(1)
+    // }
+  },
+  title: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    color: 'black',
+    backgroundColor: 'lightgrey',
+    borderRadius: '15px 15px 0 0',
+    fontSize: '1.2em',
+    fontWeight: 'bold'
+  },
+  gridList: {
+    width: '75%'
   }
 }));
 
@@ -44,7 +60,7 @@ function News(props) {
   const classes = useStyles();
 
   // console.log('newsData', newsData);
-  console.log('newsData?.docs', newsData?.docs);
+  // console.log('newsData?.docs', newsData?.docs);
 
   return (
     <React.Fragment>
@@ -53,7 +69,9 @@ function News(props) {
       <div className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key='Subheader' cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component='div'>Coronavirus News</ListSubheader>
+            <ListSubheader className={classes.title} component='div'>
+              Coronavirus News
+            </ListSubheader>
           </GridListTile>
           {newsData?.docs
             ? newsData.docs
