@@ -16,9 +16,21 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1)
-    }
+    justifyContent: 'space-around',
+    overflow: 'hidden'
+  },
+  title: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    color: 'black',
+    backgroundColor: 'lightgrey',
+    borderRadius: '15px 15px 0 0',
+    fontWeight: 'bold',
+    fontSize: '1.2em'
+  },
+  gridList: {
+    width: '75%'
   }
 }));
 
@@ -43,7 +55,7 @@ function News(props) {
 
   const classes = useStyles();
 
-  console.log('newsData', newsData);
+  // console.log('newsData', newsData);
   // console.log('newsData?.docs', newsData?.docs);
 
   return (
@@ -53,25 +65,22 @@ function News(props) {
       <div className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>
           <GridListTile key='Subheader' cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component='div'>Coronavirus News</ListSubheader>
+            <ListSubheader className={classes.title} component='div'>
+              Coronavirus News
+            </ListSubheader>
           </GridListTile>
           {newsData?.docs
-            ? newsData.docs.map((item, i) => (
-                <GridListTile key={i}>
-                  <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
-                  <a href={item.web_url}>
-                    <GridListTileBar
-                      title={item.headline.main}
-                      subtitle={<span>{item.byline.original}</span>}
-                      // actionIcon={
-                      //   <IconButton aria-label={`info about ${item.headline.main}`} className={classes.icon}>
-                      //     <InfoIcon />
-                      //   </IconButton>
-                      // }
-                    />
-                  </a>
-                </GridListTile>
-              ))
+            ? newsData.docs
+                .filter((item) => item.multimedia.length !== 0)
+                .slice(0, 8)
+                .map((item, i) => (
+                  <GridListTile key={i}>
+                    <img src={`https://static01.nyt.com/${item.multimedia[1].url}`} alt={item.headline.main} />
+                    <a href={item.web_url}>
+                      <GridListTileBar title={item.headline.main} subtitle={<span>{item.byline.original}</span>} />
+                    </a>
+                  </GridListTile>
+                ))
             : 'No data found'}
         </GridList>
       </div>
@@ -80,25 +89,3 @@ function News(props) {
 }
 
 export default News;
-
-{
-  /* <Container>
-  <Typography component='div' style={{ color: 'grey', backgroundColor: 'cream', height: '100%', padding: 10 }}>
-    <h3 style={{ textAlign: 'center' }}>Coronavirus News</h3>
-
-    <div className={classes.root}>
-      <ul>
-        {newsData?.docs
-          ? newsData.docs.map((item, i) => (
-              <>
-                <li key={i + 'li'}>
-                  <a href={item.web_url}>{item.abstract}</a>
-                </li>
-              </>
-            ))
-          : 'No data found'}
-      </ul>
-    </div>
-  </Typography>
-</Container>; */
-}

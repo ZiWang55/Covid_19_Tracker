@@ -23,8 +23,8 @@ const updateSubject = `COVID-19 TRACKER: Your Daily Update is Here for ${todaysD
 
 // you will need to add these to your local .env file
 // please see Slack chat for these two values
-const API_KEY = process.env.API_KEY;
-const DOMAIN = process.env.DOMAIN;
+const API_KEY = process.env.MAILGUN_API_KEY;
+const DOMAIN = process.env.MAILGUN_DOMAIN;
 
 // this variable will contain an array of email addresses queries from database
 const optInEmailList = [];
