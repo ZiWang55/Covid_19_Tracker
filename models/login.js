@@ -27,10 +27,11 @@ const loginSchema = new Schema({
     type: String,
     trim: true,
     required: "Enter your county name",
+  },
+  opt_in: {
+    type: Boolean
   }
 });
-
-
 
 const Login = mongoose.model("Login", loginSchema);
 
