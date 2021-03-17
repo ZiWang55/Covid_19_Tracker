@@ -12,8 +12,7 @@
 
 const mailgun = require("mailgun-js");
 require("dotenv").config();
-import axios from "axios";
-import { fetchDailyData } from "./client/src/api/index";
+// import { fetchDailyData } from "./client/src/api/index";
 
 // this points to the database query model - may need to update later
 const db = require("./models/login.js");
@@ -81,7 +80,7 @@ async function dailyEmailBlast() {
  *
  */
 
-async function welcomeEmail(newUserEmailAddress) {
+module.exports = async function welcomeEmail(newUserEmailAddress) {
   const welcomeSubject = "Welcome to COVID-19 Tracker!  Thanks for Signing Up.";
   // this will be the body text of the daily email blast
   // the dailyCases stuff will need to be further deconstructed and
