@@ -116,7 +116,7 @@ export default function SimpleModal(props) {
         <DialogActions>
         {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
         <Button onClick={props.changeUser}>Login</Button>
-        <Button onClick>Close</Button>
+        <Button>Close</Button>
         </DialogActions>
     
     {/* </div> */}
@@ -127,7 +127,7 @@ export default function SimpleModal(props) {
   return (
     <div>
       <MyButton type="button" onClick={handleOpen}>
-        Login
+        {props.title}
       </MyButton>
       <Modal
         open={open}

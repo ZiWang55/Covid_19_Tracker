@@ -4,29 +4,26 @@ import Home from "./pages/Home";
 import NewUser from './pages/NewUser'
 import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/Wrapper/Wrapper";
-import API from './api/Users';
+import UserContext from './api/UserContext';
 
 
 function App() {
   
-  const [user, setUser] = useState('testName');
-  const [password, setPassword] = useState('testPassword');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [county, setCounty] = useState('');
+  const [opt_in, setOpt_in] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
 
-  const showUser = () => {
-    console.log("THE USER IS ", user);
-  };
-  
+  // const showUser = () => {
+  //   console.log("THE USER IS ", user);
+  // };
+
   const changeUser = event => {
-    event.preventDefault();
-   
-   
-    console.log("AUTHENTICATION EMAIL ", event.target.parentNode.nameInput.value)
-    console.log("AUTHENTICATION PASSWORD ", event.target.parentNode.passwordInput.value)
-    let email = event.target.parentNode.nameInput.value
-    let password = event.target.parentNode.passwordInput.value
-    
-    // console.log("THE NEW USER IS ", user);
-    // console.log("THE NEW PASSWORD IS ", password);
+    event.preventDefault(); 
+    console.log("AUTHENTICATION EMAIL ", email)
+    console.log("AUTHENTICATION PASSWORD ", password)
 
     $.post("/api/login", {
       email: email,
@@ -36,39 +33,40 @@ function App() {
         /* window.location.replace("/members"); */
         // If there's an error, log the error
         console.log('post route worked, this is the .then!', response);
+        setAuthenticated(true);
+        setName(response[0].name);
+        setEmail(response[0].email);
+        setPassword(response[0].password);
+        setCounty(response[0].county);
       })
       .catch(function(err) {
         console.log(err);
       });
-
-    // API.checkUser({
-    //   email: email,
-    //   password: password
-    // })
-    // .then(res => {
-    //   console.log("AUTHENTICATION ROUTE ", res);
-    // })
-    // .catch(err => {
-    //   console.log("POST ROUTE ERROR ", err);
-    // });
   };
   
   const handleInputName = event => {
     event.preventDefault();
-    console.log("YOUR NAME IS ", event.target.value);
-    setUser(event.target.value);
+    setEmail(event.target.value);
   };
   
   const handleInputPassword = event => {
     event.preventDefault();
-    console.log("YOUR SUPER SECRET PASSWORD IS ", event.target.value);
     setPassword(event.target.value);
   };
 
+  const testFunction = event => {
+    console.log("YOU ARE AUTHENTICATED");
+  };
+
+  useEffect (() => {
+    console.log("AUTHENTICATION IS ", authenticated);
+  }, [authenticated]);
+
     return (
+      <UserContext.Provider value={{ name, email, password, county, authenticated }}>
         <Router>
             <div>
-            <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} />
+            { authenticated === false ? <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication="false" /> : <Navbar authentication="true" changeUser={testFunction} /> }
                 <Wrapper>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/home" component={Home} />
@@ -76,6 +74,7 @@ function App() {
                 </Wrapper>
             </div>
         </Router>
+      </UserContext.Provider>
     );
 }
 
