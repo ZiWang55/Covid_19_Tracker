@@ -11,7 +11,6 @@ const axios = require('axios');
 var passport = require("./config/passport");
 var isAuthenticated = require("./config/middleware/isAuthenticated");
 
-
 // Define middleware here
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +22,7 @@ app.use(passport.session());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
+             
 // Define API routes here
 // app.use(routes)
 // Connected to MongoDB
