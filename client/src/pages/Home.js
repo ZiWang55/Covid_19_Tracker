@@ -7,6 +7,8 @@ import coronaImage from "../images/image.png";
 import fetchNews from "../components/FetchNews";
 import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
+import { Container, Typography, BottomNavigation } from '@material-ui/core';
+import CopyrightIcon from '@material-ui/icons/Copyright';
 
 class App extends React.Component {
   state = {
@@ -72,6 +74,13 @@ class App extends React.Component {
 
           <News docs={news.docs} />
         </div>
+        <Container>
+          <BottomNavigation>
+        <Typography>
+          <CopyrightIcon/>
+          </Typography>
+          </BottomNavigation>
+      </Container>
       </div>
     );
   }
