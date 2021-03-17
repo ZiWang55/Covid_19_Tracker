@@ -9,7 +9,6 @@ import Modal from '../Modal/Modal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      
     flexGrow: 1,
   },
   menuButton: {

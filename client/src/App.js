@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from "./pages/Home";
-import NewUser from './pages/NewUser'
-import Navbar from "./components/Navbar/Navbar";
-import Wrapper from "./components/Wrapper/Wrapper";
-import UserContext from './api/UserContext';
-
+import Home from './pages/Home';
+import NewUser from './pages/NewUser';
+import Settings from './pages/Settings';
+import Navbar from './components/Navbar/Navbar';
+import Wrapper from './components/Wrapper/Wrapper';
+import API from './api/Users';
 
 function App() {
   
@@ -25,11 +25,11 @@ function App() {
     console.log("AUTHENTICATION EMAIL ", email)
     console.log("AUTHENTICATION PASSWORD ", password)
 
-    $.post("/api/login", {
+    $.post('/api/login', {
       email: email,
       password: password
     })
-      .then(function(response) {
+      .then(function (response) {
         /* window.location.replace("/members"); */
         // If there's an error, log the error
         console.log('post route worked, this is the .then!', response);
@@ -39,17 +39,17 @@ function App() {
         setPassword(response[0].password);
         setCounty(response[0].county);
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
   };
-  
-  const handleInputName = event => {
+
+  const handleInputName = (event) => {
     event.preventDefault();
     setEmail(event.target.value);
   };
-  
-  const handleInputPassword = event => {
+
+  const handleInputPassword = (event) => {
     event.preventDefault();
     setPassword(event.target.value);
   };
