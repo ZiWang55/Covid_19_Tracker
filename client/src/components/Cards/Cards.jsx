@@ -50,7 +50,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   return (
     <div className={classes.root}>
       <Grid container className={styles.card} spacing={1} justify='center'>
-        <Grid item style={{height:'100%', width:'100%'}} component={Card} className={classes.grid}>
+        <Grid item style={{height:'100%', width:'100%', margin:'5px'}} component={Card} className={classes.grid}>
           <CardContent className={styles.infected}>
             <Typography color="textSecondary" gutterBottom>
               Infected
@@ -71,7 +71,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item style={{height:'100%', width:'100%'}}  component={Card} className={classes.grid}>
+        <Grid item style={{height:'100%', width:'100%',margin:'5px'}}  component={Card} className={classes.grid}>
           <CardContent className={styles.recovered}>
             <Typography color="textSecondary" gutterBottom>
               Recovered
@@ -92,7 +92,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item style={{height:'100%', width:'100%'}}   component={Card} className={classes.grid}>
+        <Grid item style={{height:'100%', width:'100%',margin:'5px'}}   component={Card} className={classes.grid}>
           <CardContent className={styles.vaccinations}>
             <Typography color="textSecondary" gutterBottom>
               Vaccination
@@ -108,7 +108,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item style={{height:'100%', width:'100%'}}    component={Card} className={classes.grid}>
+        <Grid item style={{height:'100%', width:'100%',margin:'5px'}}    component={Card} className={classes.grid}>
           <CardContent className={styles.deaths}>
             <Typography color="textSecondary" gutterBottom>
               Deaths
