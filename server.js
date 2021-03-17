@@ -12,7 +12,6 @@ var passport = require("./config/passport");
 var isAuthenticated = require("./config/middleware/isAuthenticated");
 const loginControllers = require('./controllers/loginControllers');
 
-
 // Define middleware here
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
@@ -24,7 +23,6 @@ app.use(passport.session());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
 
 // Connected to MongoDB
 mongoose.connect(
