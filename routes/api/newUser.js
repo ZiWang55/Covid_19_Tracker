@@ -6,4 +6,8 @@ router.route("/")
   .get(loginController.findAll)
   .post(loginController.create);
 
+router.route("/:id")
+  .get(loginController.findAll)
+  .post(loginController.create);
+
 module.exports = router;
