@@ -1,4 +1,5 @@
 const db = require("../models");
+const welcomeEmail = require ('../mailgun')
 
 module.exports = {
     create: function(req,res) {
@@ -7,8 +8,11 @@ module.exports = {
             .create(req.body)
             .then(dbModel => 
                 {
-                    console.log(dbModel);
+                    console.log('dbModel',dbModel);
                     res.json(dbModel);
+                    // send new user welcome email
+                    welcomeEmail(dbModel.email)
+
                 })
             // .catch(err => res.status(422).json(err));
             .catch((err) => console.log(err));
