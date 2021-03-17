@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../components/Wrapper/Wrapper";
 import API from "../api/Users";
-import { TextField, Button, Typography } from "@material-ui/core";
+import { TextField, Button, Typography, ButtonGroup, Container, Grid } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import GroupIcon from "@material-ui/icons/Group";
+
 
 function NewUser() {
   const [NewUser, setNewUser] = useState({});
@@ -37,7 +38,12 @@ function NewUser() {
   }
 
   return (
-    <Wrapper>
+      <Container>
+          <Grid container direction="column"
+            justify="center"
+            alignItems="center" >
+              <Grid item style={{margin: '30px'}}>
+   
       <form className="form-control">
         <label>
           <Typography> Name:</Typography>
@@ -83,7 +89,9 @@ function NewUser() {
           />
         </label>
         <br></br>
-      </form>
+      </form></Grid>
+      <Grid item style={{margin:'30px'}}>
+      <ButtonGroup>
       <Button
         startIcon={<SaveIcon />}
         variant="contained"
@@ -101,7 +109,9 @@ function NewUser() {
       >
         Show Users
       </Button>
-    </Wrapper>
+      </ButtonGroup></Grid>
+    </Grid>
+    </Container>
   );
 }
 
