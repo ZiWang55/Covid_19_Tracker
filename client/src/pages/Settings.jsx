@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button, Typography, ButtonGroup } from '@material-ui/core';
-import GroupIcon from "@material-ui/icons/Group";
 import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -130,8 +129,7 @@ function Settings() {
             />
           </form>
         </Grid>
-        
-          <Grid item style={{ margin: "30px" }}>
+          <Grid item style={{ margin: "20px" }}>
           <ButtonGroup>
             <Button
               startIcon={<SaveIcon />}
@@ -143,7 +141,7 @@ function Settings() {
             </Button>
             <br></br>
             <Button
-              startIcon={<GroupIcon />}
+              startIcon={<DeleteIcon />}
               variant="contained"
               color="secondary"
               onClick={deleteButton}
