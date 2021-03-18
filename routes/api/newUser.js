@@ -8,6 +8,8 @@ router.route("/")
 
 router.route("/:id")
   .get(loginController.findAll)
-  .post(loginController.create);
+  .post(loginController.create)
+  .put(loginController.update)
+  .delete(loginController.remove);
 
 module.exports = router;

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button } from '@material-ui/core';
+import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
 import API from '../api/Users';
+import { useEffect } from 'react';
 
 function Settings() {
   const [userSettings, setUserSettings] = useState({
@@ -9,8 +12,16 @@ function Settings() {
     email: '',
     password: '',
     county: '',
-    optInEmail: true
+    optInEmail: true,
+    userID: 0,
+    isAuthenticated: false
   });
+
+  let user = useContext(UserContext);
+  
+  const onLoad = () => {
+    setUserSettings(user);
+  }
 
   const handleNameChange = (event) => {
     setUserSettings({ ...userSettings, [event.target.name]: event.target.value });
@@ -38,9 +49,29 @@ function Settings() {
   const saveButton = () => {
     //create functionality to save state to database
     console.log('save clicked. userSettings:', userSettings);
+    API.updateUser(user.userID,{
+      name: userSettings.name,
+      email: userSettings.email,
+      password: userSettings.password,
+      county: userSettings.county,
+      opt_in: userSettings.optInEmail
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   };
 
-  console.log(userSettings);
+  const deleteButton = () => {
+    API.deleteUser(user.userID)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => {
+    onLoad();
+  },[]);
+
 
   return (
     <Container>
@@ -97,6 +128,12 @@ function Settings() {
           <Grid item style={{ margin: '5px' }}>
             <Button variant='contained' color='primary' size='large' onClick={saveButton} startIcon={<SaveIcon />}>
               Save
+            </Button>
+          </Grid>
+
+          <Grid item style={{ margin: '5px' }}>
+            <Button variant='contained' color='secondary' size='large' onClick={deleteButton} startIcon={<DeleteIcon />}>
+              Delete
             </Button>
           </Grid>
         </FormGroup>
