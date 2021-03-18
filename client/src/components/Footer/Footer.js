@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-scroll";
+
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -21,6 +21,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="d-flex" id='footer-title'>
+                
               <p>Covid-19 Tracker</p>
             </div>
             <div className="d-flex">
