@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NativeSelect, FormControl, TextField, MenuItem, Select, InputLabel } from '@material-ui/core';
+import { FormHelperText, NativeSelect, FormControl, TextField, MenuItem, Select, InputLabel } from '@material-ui/core';
 import { fetchCountries } from '../../api';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,15 +28,16 @@ const CountryPicker = ({ handleCountryChange }) => {
 
   return (
     <FormControl variant='filled' style={{width:'150px'}} className={classes.root}>
-      <InputLabel id="demo-simple-select-outlined-label">Country</InputLabel>
-      <Select defaultValue='' onChange={(e) => handleCountryChange(e.target.value)}>
-        <MenuItem value=''>Global</MenuItem>
+      <InputLabel shrink htmlFor="age-native-label-placeholder">Country</InputLabel>
+      <Select defaultValue='' displayEmpty onChange={(e) => handleCountryChange(e.target.value)}>
+        <MenuItem value="">Global</MenuItem>
         {fetchedCountries.map((country, i) => (
           <MenuItem value={country} key={i}>
             {country}
           </MenuItem>
-        ))}
+        ))}   
       </Select>
+   
     </FormControl>
   );
 };
