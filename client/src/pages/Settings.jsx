@@ -75,7 +75,7 @@ function Settings() {
 
   return (
     <Container>
-      <Grid container direction='column' justify='center' alignItems='center' style={{ marginTop: '30px' }}>
+      <Grid container direction='column' justify='center' alignItems='center' style={{ marginTop: '5px' }}>
         <Grid item style={{ margin: "30px" }}>
           <form className="form-control">
             <label>
