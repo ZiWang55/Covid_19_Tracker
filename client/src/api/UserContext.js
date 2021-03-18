@@ -5,6 +5,8 @@ const UserContext = createContext({
     email: "",
     password: "",
     county: "",
+    opt_in: "",
+    userID: 0,
     isAuthenticated: false
 });
 
