@@ -12,5 +12,8 @@ export default {
     },
     updateUser: function(id, userData) {
         return axios.put("/api/users/" + id, userData);
+    },
+    deleteUser: function(id) {
+        return axios.delete("/api/users/" + id);
     }
 };

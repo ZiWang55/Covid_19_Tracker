@@ -59,6 +59,14 @@ function Settings() {
     .catch(err => console.log(err));
   };
 
+  const deleteButton = () => {
+    API.deleteUser(user.userID)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
+
   useEffect(() => {
     onLoad();
   },[]);
@@ -119,6 +127,12 @@ function Settings() {
           <Grid item style={{ margin: '5px' }}>
             <Button variant='contained' color='primary' size='large' onClick={saveButton} startIcon={<SaveIcon />}>
               Save
+            </Button>
+          </Grid>
+
+          <Grid item style={{ margin: '5px' }}>
+            <Button variant='contained' color='primary' size='large' onClick={deleteButton} startIcon={<SaveIcon />}>
+              Delete
             </Button>
           </Grid>
         </FormGroup>
