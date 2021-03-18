@@ -76,7 +76,6 @@ function Settings() {
   return (
     <Container>
       <Grid container direction='column' justify='center' alignItems='center' style={{ marginTop: '30px' }}>
-        <FormGroup column>
         <Grid item style={{ margin: "30px" }}>
           <form className="form-control">
             <label>
@@ -150,7 +149,6 @@ function Settings() {
             </Button>
           </ButtonGroup>
         </Grid>
-        </FormGroup>
       </Grid>
     </Container>
   );
