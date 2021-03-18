@@ -10,6 +10,8 @@ import classNames from "classnames";
 import { Container, Typography, BottomNavigation } from '@material-ui/core';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 
+import Footer from '../components/Footer/Footer'
+
 class App extends React.Component {
   state = {
     data: {},
@@ -73,14 +75,19 @@ class App extends React.Component {
           <hr />
 
           <News docs={news.docs} />
+         
         </div>
-        <Container>
-          <BottomNavigation>
+        {/* <Container> */}
+          {/* <BottomNavigation>
         <Typography>
           <CopyrightIcon/>
           </Typography>
-          </BottomNavigation>
-      </Container>
+          </BottomNavigation> */
+          }
+           
+             <Footer/>
+          
+      {/* </Container> */}
       </div>
     );
   }
