@@ -98,7 +98,7 @@ export default function SimpleModal(props) {
         */}
      
         <TextField
-            autoFocus
+            
             margin="dense"
             id="name"
             label="Password"
@@ -127,7 +127,7 @@ export default function SimpleModal(props) {
   return (
     <div>
       <MyButton type="button" onClick={handleOpen}>
-        Login
+        {props.title}
       </MyButton>
       <Modal
         open={open}
