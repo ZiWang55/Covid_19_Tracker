@@ -98,7 +98,7 @@ export default function SimpleModal(props) {
         */}
      
         <TextField
-            autoFocus
+            
             margin="dense"
             id="name"
             label="Password"
