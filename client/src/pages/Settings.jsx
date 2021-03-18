@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button } from '@material-ui/core';
+import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button, Typography, ButtonGroup } from '@material-ui/core';
+import GroupIcon from "@material-ui/icons/Group";
 import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -77,65 +78,80 @@ function Settings() {
     <Container>
       <Grid container direction='column' justify='center' alignItems='center' style={{ marginTop: '30px' }}>
         <FormGroup column>
-          <Grid item style={{ margin: '5px' }}>
-            <FormControlLabel
-              control={<TextField id='standard-basic' label='Change name' onChange={handleNameChange} name='name' variant='outlined' type='text' />}
-              label='Change name'
-            />
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
-            <FormControlLabel
-              control={
-                <TextField id='standard-basic' label='Change email' onChange={handleEmailChange} name='email' variant='outlined' type='text' />
-              }
-              label='Change email'
-            />
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
-            <FormControlLabel
-              control={
-                <TextField
-                  id='standard-basic'
-                  label='Change password'
-                  onChange={handlePasswordChange}
-                  name='password'
-                  variant='outlined'
-                  type='password'
-                />
-              }
-              label='Change password'
-            />
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
-            <FormControlLabel
-              control={
-                <TextField id='standard-basic' label='Change county' onChange={handleCountyChange} name='county' variant='outlined' type='text' />
-              }
-              label='Change county'
-            />
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
+        <Grid item style={{ margin: "30px" }}>
+          <form className="form-control">
+            <label>
+              <Typography> Name:</Typography>
+              <TextField
+                variant="outlined"
+                color="primary"
+                type="text"
+                name="name"
+                onChange={handleNameChange}
+              />
+            </label>
+            <br></br>
+            <label>
+              <Typography> Email:</Typography>
+              <TextField
+                variant="outlined"
+                color="primary"
+                type="email"
+                name="email"
+                onChange={handleEmailChange}
+              />
+            </label>
+            <br></br>
+            <label>
+              <Typography> Password:</Typography>
+              <TextField
+                variant="outlined"
+                color="primary"
+                type="password"
+                name="password"
+                onChange={handlePasswordChange}
+              />
+            </label>
+            <br></br>
+            <label>
+              <Typography> County:</Typography>
+              <TextField
+                variant="outlined"
+                color="primary"
+                type="text"
+                name="county"
+                onChange={handleCountyChange}
+              />
+            </label>
+            <br></br>
             <FormControlLabel
               control={<Checkbox checked={userSettings.optInEmail} onChange={handleOptInChange} name='optInEmail' color='primary' />}
               label='Opt-in to emails'
             />
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
-            <Button variant='contained' color='primary' size='large' onClick={saveButton} startIcon={<SaveIcon />}>
+          </form>
+        </Grid>
+        
+          <Grid item style={{ margin: "30px" }}>
+          <ButtonGroup>
+            <Button
+              startIcon={<SaveIcon />}
+              variant="contained"
+              color="primary"
+              onClick={saveButton}
+            >
               Save
             </Button>
-          </Grid>
-
-          <Grid item style={{ margin: '5px' }}>
-            <Button variant='contained' color='secondary' size='large' onClick={deleteButton} startIcon={<DeleteIcon />}>
+            <br></br>
+            <Button
+              startIcon={<GroupIcon />}
+              variant="contained"
+              color="secondary"
+              onClick={deleteButton}
+            >
               Delete
             </Button>
-          </Grid>
+          </ButtonGroup>
+        </Grid>
         </FormGroup>
       </Grid>
     </Container>
