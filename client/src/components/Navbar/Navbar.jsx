@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '../Modal/Modal';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +29,19 @@ export default function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Home
+            <Link to="/" >
+              Home
+            </Link>
+          </Typography>
+          <Typography variant="h7">
+            <Link to="/settings" className={window.location.pathname === '/settings'}>
+              Settings
+            </Link>
+          </Typography>
+          <Typography variant="h7">
+            <Link to="/newuser" className={window.location.pathname === '/newuser'}>
+              Create User
+            </Link>
           </Typography>
           { props.authentication === "false" ? <Modal changeUser={props.changeUser} handleInputName={props.handleInputName} handleInputPassword={props.handleInputPassword} title="Login" /> : <Modal changeUser={props.changeUser} title="Logout" /> }
         </Toolbar>

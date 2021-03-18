@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button } from '@material-ui/core';
 import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
 import API from '../api/Users';
 import { useEffect } from 'react';
 
@@ -131,7 +132,7 @@ function Settings() {
           </Grid>
 
           <Grid item style={{ margin: '5px' }}>
-            <Button variant='contained' color='primary' size='large' onClick={deleteButton} startIcon={<SaveIcon />}>
+            <Button variant='contained' color='secondary' size='large' onClick={deleteButton} startIcon={<DeleteIcon />}>
               Delete
             </Button>
           </Grid>
