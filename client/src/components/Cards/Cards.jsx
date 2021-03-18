@@ -92,22 +92,6 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
           </CardContent>
         </Grid>
-        <Grid item style={{height:'100%', width:'100%',margin:'5px'}}   component={Card} className={classes.grid}>
-          <CardContent className={styles.vaccinations}>
-            <Typography color="textSecondary" gutterBottom>
-              Vaccination
-            </Typography>
-            <Typography variant="h5">
-              <CountUp start={0} end={vacs} duration={2.5} separator="," />
-            </Typography>
-            <Typography color="textSecondary">
-              {new Date(lastUpdate).toDateString()}
-            </Typography>
-            <Typography variant="body2">
-              Number of COVID-19 vaccinations
-            </Typography>
-          </CardContent>
-        </Grid>
         <Grid item style={{height:'100%', width:'100%',margin:'5px'}}    component={Card} className={classes.grid}>
           <CardContent className={styles.deaths}>
             <Typography color="textSecondary" gutterBottom>
@@ -126,6 +110,22 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             </Typography>
             <Typography variant="body2">
               Number of deaths caused by COVID-19
+            </Typography>
+          </CardContent>
+        </Grid>
+        <Grid item style={{height:'100%', width:'100%',margin:'5px'}}   component={Card} className={classes.grid}>
+          <CardContent className={styles.vaccinations}>
+            <Typography color="textSecondary" gutterBottom>
+              Vaccination
+            </Typography>
+            <Typography variant="h5">
+              <CountUp start={0} end={vacs} duration={2.5} separator="," />
+            </Typography>
+            <Typography color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
+            <Typography variant="body2">
+              Number of COVID-19 vaccinations
             </Typography>
           </CardContent>
         </Grid>
