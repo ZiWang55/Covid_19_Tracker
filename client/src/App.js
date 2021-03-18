@@ -6,6 +6,7 @@ import Settings from './pages/Settings';
 import Navbar from './components/Navbar/Navbar';
 import Wrapper from './components/Wrapper/Wrapper';
 import API from './api/Users';
+import UserContext from './api/UserContext';
 
 function App() {
   
