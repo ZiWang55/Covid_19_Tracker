@@ -8,14 +8,18 @@ import {
   Container,
   Grid,
 } from "@material-ui/core";
-import Iframe from "../components/Iframe/Iframe"
+import Iframe from "../components/Iframe/Iframe";
+import News from "../components/News/News";
 
 function Members() {
 
   return (
     <Container>
-      <Grid container direction="column" justify="center" alignItems="center">
+      <Grid container direction="column">
           <Iframe />
+      </Grid>
+      <Grid>
+        <News />
       </Grid>
     </Container>
   );
