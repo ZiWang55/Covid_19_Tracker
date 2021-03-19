@@ -83,7 +83,7 @@ export default function ButtonAppBar(props) {
               title="Login"
             />
           ) : (
-            <Button className={classes.logbutton} variant='contained' changeUser={props.changeUser} title="Logout">Logout</Button>
+            <Button className={classes.logbutton} variant='contained' logout={props.logout} title="Logout">Logout</Button>
           )}
         </Toolbar>
       </AppBar>
