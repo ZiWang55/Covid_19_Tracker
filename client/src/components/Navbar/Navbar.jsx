@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '../Modal/Modal';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,12 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: 50
+    fontSize: 50,
   },
   button: {
     marginRight: 10,
-    textDecoration: 'none'
   },
+
 }));
 
 export default function ButtonAppBar(props) {
@@ -33,9 +34,11 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-         <Typography className={classes.title}>
-            <Link to="/" > 
-              Home  
+         <Typography color="inherit" className={classes.title}>
+            <Link  to="/" > 
+            <Button>
+             <HomeRoundedIcon fontSize='large'/>
+              </Button>
             </Link>
         </Typography>
       
