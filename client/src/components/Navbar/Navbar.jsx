@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '../Modal/Modal';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,8 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: 50
+    fontSize: 50,
   },
+  button: {
+    marginRight: 10,
+  },
+
 }));
 
 export default function ButtonAppBar(props) {
@@ -28,21 +34,22 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <Link to="/" >
-              Home
+         <Typography color="inherit" className={classes.title}>
+            <Link  to="/" > 
+            <Button>
+             <HomeRoundedIcon fontSize='large'/>
+              </Button>
             </Link>
-          </Typography>
-          <Typography variant="h6">
-            <Link to="/settings" >
-              Settings
+        </Typography>
+      
+            <Link to="/settings"> 
+             <Button className={classes.button} variant="contained" color="primary">  Settings          </Button>
             </Link>
-          </Typography>
-          <Typography variant="h6">
-            <Link to="/newuser" >
-              Create User
+
+            <Link to="/newuser">  <Button className={classes.button} variant="contained" color="primary">  
+            Create User </Button>
             </Link>
-          </Typography>
+        
           { props.authentication === "false" ? <Modal changeUser={props.changeUser} handleInputName={props.handleInputName} handleInputPassword={props.handleInputPassword} title="Login" /> : <Modal changeUser={props.changeUser} title="Logout" /> }
         </Toolbar>
       </AppBar>

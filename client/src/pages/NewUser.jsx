@@ -103,7 +103,6 @@ function NewUser() {
             >
               Create User
             </Button>
-            <br />
             <Button
               startIcon={<GroupIcon />}
               variant="contained"

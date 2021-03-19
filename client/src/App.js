@@ -21,10 +21,6 @@ function App() {
   const changeUser = event => {
     event.preventDefault(); 
 
-    // $.post('/api/login', {
-    //   email: email,
-    //   password: password
-    // })
     axios.post('/api/login', {
       email: email,
       password: password
