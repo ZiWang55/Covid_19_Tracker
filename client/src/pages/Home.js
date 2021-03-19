@@ -54,11 +54,11 @@ class App extends React.Component {
             alignItems="center"
             style={{ minHeight: "50vh" }}
           >
-            <Grid direction="column" item xs={12} md={4}>
+            <Grid item xs={12} md={4}>
               <Cards data={data} />
             </Grid>
 
-            <Grid direction="column" item xs={12} md={8}>
+            <Grid item xs={12} md={8}>
               <Grid
                 container
                 justify="center"
