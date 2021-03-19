@@ -46,7 +46,7 @@ export default function ButtonAppBar(props) {
              <Button className={classes.button} variant="contained" color="primary">  Settings          </Button>
             </Link>
 
-          <Link to="/newuser">  <Button className={classes.button} variant="contained" color="primary">  
+            <Link to="/newuser">  <Button className={classes.button} variant="contained" color="primary">  
             Create User </Button>
             </Link>
         
