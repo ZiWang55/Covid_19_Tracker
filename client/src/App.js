@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NewUser from './pages/NewUser';
 import Settings from './pages/Settings';
+import Members from './pages/Members';
 import Navbar from './components/Navbar/Navbar';
 import Wrapper from './components/Wrapper/Wrapper';
 import UserContext from './api/UserContext';
@@ -81,6 +82,7 @@ function App() {
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/newuser" component={NewUser} />
                     <Route exact path="/settings" component={Settings} />
+                    <Route exact path="/members" component={Members} />
                 </Wrapper>
             </div>
         </Router>
