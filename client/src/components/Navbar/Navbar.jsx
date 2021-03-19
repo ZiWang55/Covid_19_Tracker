@@ -26,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 10,
   },
+  logbutton: {
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+  },
 }));
 
 export default function ButtonAppBar(props) {
@@ -67,16 +76,14 @@ export default function ButtonAppBar(props) {
           </Link>
 
           {props.authentication === "false" ? (
-            <IconButton>
             <Modal
               changeUser={props.changeUser}
               handleInputName={props.handleInputName}
               handleInputPassword={props.handleInputPassword}
               title="Login"
-            /></IconButton>
+            />
           ) : (
-            // <Modal changeUser={props.changeUser} title="Logout" />
-            <IconButton onClick={props.logout}>Logout</IconButton>
+            <Button className={classes.logbutton} variant='contained' changeUser={props.changeUser} title="Logout">Logout</Button>
           )}
         </Toolbar>
       </AppBar>
