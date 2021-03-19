@@ -1,14 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Cards, Chart, CountryPicker, Navbar, News } from "../components";
+import { Cards, Chart, CountryPicker, News } from "../components";
 import styles from "./Home.module.css";
 import { fetchData } from "../api";
 import coronaImage from "../images/image.png";
 import fetchNews from "../components/FetchNews";
 import Grid from "@material-ui/core/Grid";
 import classNames from "classnames";
-import { Container, Typography, BottomNavigation } from '@material-ui/core';
-import CopyrightIcon from '@material-ui/icons/Copyright';
 
 import Footer from '../components/Footer/Footer'
 
@@ -21,14 +18,9 @@ class App extends React.Component {
 
   async componentDidMount() {
     const fetchedData = await fetchData();
-    // console.log(fetchedData);
     this.setState({ ...this.state, data: fetchedData });
 
-    const fetchedNews = await fetchNews();
-    // console.log('fetchedNews', fetchedNews);
-
-    // set the news state to use as props
-    // this.setState({ ...this.state, news: fetchedNews.data.response });
+    // const fetchedNews = await fetchNews();
   }
 
   handleCountryChange = async (country) => {
@@ -61,6 +53,7 @@ class App extends React.Component {
             <Grid item xs={12} md={8}>
               <Grid
                 container
+                direction="row"
                 justify="center"
                 alignItems="center"
                 style={{ minHeight: "10vh" }}

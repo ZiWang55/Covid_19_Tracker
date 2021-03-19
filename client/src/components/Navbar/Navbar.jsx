@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,11 +42,11 @@ export default function ButtonAppBar(props) {
             </Link>
         </Typography>
       
-            <Link to="/settings" className={window.location.pathname === '/settings'}> 
+            <Link to="/settings"> 
              <Button className={classes.button} variant="contained" color="primary">  Settings          </Button>
             </Link>
 
-          <Link to="/newuser" className={window.location.pathname === '/newuser'}>  <Button className={classes.button} variant="contained" color="primary">  
+          <Link to="/newuser">  <Button className={classes.button} variant="contained" color="primary">  
             Create User </Button>
             </Link>
         

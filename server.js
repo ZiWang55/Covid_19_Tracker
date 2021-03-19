@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 require('dotenv').config();
 const axios = require('axios');
-var passport = require("./config/passport");
-var isAuthenticated = require("./config/middleware/isAuthenticated");
+const passport = require("./config/passport");
+const isAuthenticated = require("./config/middleware/isAuthenticated");
 const loginControllers = require('./controllers/loginControllers');
 
 // Define middleware here
