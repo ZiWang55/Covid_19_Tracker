@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NewUser from './pages/NewUser';
 import Settings from './pages/Settings';
 import Navbar from './components/Navbar/Navbar';
 import Wrapper from './components/Wrapper/Wrapper';
 import UserContext from './api/UserContext';
+import axios from 'axios';
 
 function App() {
   
@@ -20,7 +21,11 @@ function App() {
   const changeUser = event => {
     event.preventDefault(); 
 
-    $.post('/api/login', {
+    // $.post('/api/login', {
+    //   email: email,
+    //   password: password
+    // })
+    axios.post('/api/login', {
       email: email,
       password: password
     })
@@ -28,12 +33,12 @@ function App() {
 
         // If there's an error, log the error
         console.log('post route worked, this is the .then!', response);
-        setName(response[0].name);
-        setEmail(response[0].email);
-        setPassword(response[0].password);
-        setCounty(response[0].county);
-        setOpt_in(response[0].opt_in);
-        setUserID(response[0]._id);
+        setName(response.data[0].name);
+        setEmail(response.data[0].email);
+        setPassword(response.data[0].password);
+        setCounty(response.data[0].county);
+        setOpt_in(response.data[0].opt_in);
+        setUserID(response.data[0]._id);
         setAuthenticated(true);
       })
       .catch(function (err) {

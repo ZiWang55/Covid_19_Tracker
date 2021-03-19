@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { CountryPicker } from '../components';
 require('dotenv').config({ path: '../../.env' });
 
 const url = 'https://covid19.mathdro.id/api';

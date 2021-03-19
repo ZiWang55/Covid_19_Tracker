@@ -28,11 +28,14 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   /*  console.log('props', props); */
   let totalVacs = 0;
 
-  useEffect(async () => {
-    let totalVacs = await fetchVaccine();
-    console.log("totalVacs", totalVacs);
-    setVacs(totalVacs);
-    return totalVacs;
+  useEffect( () => {
+    async function makeData(){
+      let totalVacs = await fetchVaccine();
+      console.log("totalVacs", totalVacs);
+      setVacs(totalVacs);
+      return totalVacs;
+    };
+    makeData();
   }, []);
 
   // async function getVacs() {
