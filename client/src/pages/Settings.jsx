@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { FormGroup, FormControlLabel, Checkbox, TextField, Container, Grid, Button, Typography, ButtonGroup } from '@material-ui/core';
+import { FormControlLabel, Checkbox, TextField, Container, Grid, Button, Typography, ButtonGroup } from '@material-ui/core';
 import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -19,9 +19,9 @@ function Settings() {
 
   let user = useContext(UserContext);
   
-  const onLoad = () => {
-    setUserSettings(user);
-  }
+  // const onLoad = () => {
+  //   setUserSettings(user);
+  // }
 
   const handleNameChange = (event) => {
     setUserSettings({ ...userSettings, [event.target.name]: event.target.value });
@@ -69,6 +69,10 @@ function Settings() {
   }
 
   useEffect(() => {
+    // onLoad();
+    const onLoad = () => {
+      setUserSettings(user);
+    }
     onLoad();
   },[]);
 
@@ -138,7 +142,6 @@ function Settings() {
             >
               Save
             </Button>
-            <br></br>
             <Button
               startIcon={<DeleteIcon />}
               variant="contained"
