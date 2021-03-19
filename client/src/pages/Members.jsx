@@ -18,9 +18,6 @@ function Members() {
       <Grid container direction="column">
           <Iframe />
       </Grid>
-      <Grid>
-        <News />
-      </Grid>
     </Container>
   );
 }
