@@ -88,7 +88,7 @@ function Settings() {
                 onChange={handleNameChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> Email:</Typography>
               <TextField
@@ -99,7 +99,7 @@ function Settings() {
                 onChange={handleEmailChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> Password:</Typography>
               <TextField
@@ -110,7 +110,7 @@ function Settings() {
                 onChange={handlePasswordChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> County:</Typography>
               <TextField
@@ -121,7 +121,7 @@ function Settings() {
                 onChange={handleCountyChange}
               />
             </label>
-            <br></br>
+            <br />
             <FormControlLabel
               control={<Checkbox checked={userSettings.optInEmail} onChange={handleOptInChange} name='optInEmail' color='primary' />}
               label='Opt-in to emails'
@@ -138,7 +138,7 @@ function Settings() {
             >
               Save
             </Button>
-            <br></br>
+            <br />
             <Button
               startIcon={<DeleteIcon />}
               variant="contained"

@@ -57,7 +57,7 @@ function NewUser() {
                 onChange={handleInputChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> Email:</Typography>
               <TextField
@@ -68,7 +68,7 @@ function NewUser() {
                 onChange={handleInputChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> Password:</Typography>
               <TextField
@@ -79,7 +79,7 @@ function NewUser() {
                 onChange={handleInputChange}
               />
             </label>
-            <br></br>
+            <br />
             <label>
               <Typography> County:</Typography>
               <TextField
@@ -90,7 +90,7 @@ function NewUser() {
                 onChange={handleInputChange}
               />
             </label>
-            <br></br>
+            <br />
           </form>
         </Grid>
         <Grid item style={{ margin: "30px" }}>
@@ -103,7 +103,7 @@ function NewUser() {
             >
               Create User
             </Button>
-            <br></br>
+            <br />
             <Button
               startIcon={<GroupIcon />}
               variant="contained"
