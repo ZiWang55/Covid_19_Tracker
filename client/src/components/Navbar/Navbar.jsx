@@ -74,7 +74,8 @@ export default function ButtonAppBar(props) {
               title="Login"
             />
           ) : (
-            <Modal changeUser={props.changeUser} title="Logout" />
+            // <Modal changeUser={props.changeUser} title="Logout" />
+            <button onClick={props.logout}>Logout</button>
           )}
         </Toolbar>
       </AppBar>
