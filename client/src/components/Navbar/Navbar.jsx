@@ -50,7 +50,7 @@ export default function ButtonAppBar(props) {
             Create User </Button>
             </Link>
         
-          { props.authentication === "false" ? <Modal changeUser={props.changeUser} handleInputName={props.handleInputName} handleInputPassword={props.handleInputPassword} title="Login" /> : <Modal changeUser={props.changeUser} title="Logout" /> }
+          { props.authentication === "false" ? <Modal changeUser={props.changeUser} handleInputName={props.handleInputName} handleInputPassword={props.handleInputPassword} title="Login" /> : <button onClick={props.logout}>Logout</button> }
         </Toolbar>
       </AppBar>
     </div>

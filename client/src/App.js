@@ -52,8 +52,14 @@ function App() {
       setPassword(event.target.value);
     };
     
-    const testFunction = event => {
-      console.log("YOU ARE AUTHENTICATED");
+    const logout = event => {
+      setName('');
+      setEmail('');
+      setPassword('');
+      setCounty('');
+      setOpt_in(false);
+      setUserID(0);
+      setAuthenticated(false);
     };
     
     useEffect (() => {
@@ -69,7 +75,7 @@ function App() {
       <UserContext.Provider value={{ name, email, password, county, opt_in, userID, authenticated }}>
         <Router>
             <div>
-            { authenticated === false ? <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication="false" /> : <Navbar authentication="true" changeUser={testFunction} /> }
+            { authenticated === false ? <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication="false" /> : <Navbar authentication="true" logout={logout} /> }
                 <Wrapper>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/home" component={Home} />
