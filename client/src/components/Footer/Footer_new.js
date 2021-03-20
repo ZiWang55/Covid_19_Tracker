@@ -11,73 +11,68 @@ import {
   LinkedinIcon,
 } from "react-share";
 
+import {
+  Typography,
+  CssBaseline,
+  Container,
+ 
+} from "@material-ui/core";
 
+import useStyles from "./styles";
 
-
-
-import './Footer.css'
 
 const Footer = () => {
+  const classes = useStyles();
+
   return (
-    <div className="superContainer">
-    <div className="footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-4 col-md-6 col-sm-6">
-            <div className="d-flex" id='footer-title'>
-                
-              <p>Covid-19 Tracker</p>
-            </div>
-            <div className="d-flex">
-              
-            </div>
-            <div className="d-flex">
-             
-            </div>
-          </div>
-          <div className="col-lg-3 col-md-2 col-sm-6">
-           
-          </div>
-          <div className="col-lg-5 col-md-5 col-sm-6 align-items-center">
-            <div className="d-flex justify-content-center">
+    <>
+      <CssBaseline />
+      
+      <Container className={classes.superContainer}>
+      <footer className={classes.footer}>
+        <Typography variant="h6" align="left" gutterBottom>
+         Covid-19 Tracker
+        </Typography>
+        <Typography variant="subtitle1" align="left" color="textSecondary">
+        Copyright{" "}&copy;
+              {" " + new Date().getFullYear() }
+        </Typography>
+        <div>
               <FacebookShareButton
                 url={"https://covid-track3r-app.herokuapp.com/"}
                 quote={"Real Time Live Data: Tracking COVID-19"}
                 hashtag="#COVID-19"
               >
-                <FacebookIcon className="mx-3" size={36} />
+                <FacebookIcon size={36} />
               </FacebookShareButton>
               <TwitterShareButton
                 url={"https://covid-track3r-app.herokuapp.com/"}
                 quote={"Real Time Live Data: Tracking COVID-19"}
                 hashtag="#COVID-19"
               >
-                <TwitterIcon className="mx-3" size={36} />
+                <TwitterIcon size={36} />
               </TwitterShareButton>
               <RedditShareButton
                 url={"https://covid-track3r-app.herokuapp.com/"}
                 quote={"Real Time Live Data: Tracking COVID-19"}
                 hashtag="#COVID-19"
               >
-                <RedditIcon className="mx-3" size={36} />
+                <RedditIcon size={36} />
               </RedditShareButton>
               <LinkedinShareButton
                 url={"https://covid-track3r-app.herokuapp.com/"}
                 quote={"Real Time Live Data: Tracking COVID-19"}
                 hashtag="#COVID-19"
               >
-                <LinkedinIcon className="mx-3" size={36} />
+                <LinkedinIcon size={36} />
               </LinkedinShareButton>
+              
             </div>
-            <p className="pt-3 text-center">
-              Copyright{" "}&copy;
-              {" " + new Date().getFullYear() }
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
+           
+            </footer>
+      </Container>
+     
+    </>
   );
 };
 
