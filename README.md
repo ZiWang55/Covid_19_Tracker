@@ -168,6 +168,7 @@ Project Link: [https://github.com/ZiWang55/Covid_19_Tracker](https://github.com/
 ## Acknowledgements
 
 * This project was based upon Adrian Hajdin's [COVID-19 Tracker](https://github.com/adrianhajdin/project_corona_tracker).  We used his project as a basis and customized it into our application and integrated new technologies.  We definitely appreciate his tutorial and you should go star his project now!
+* Visualization data on members page sourced from https://ourworldindata.org/ and https://covid19.biglocalnews.org/. Many thanks for making such intuitive UI components available to be easily shared.
 
 
 
@@ -185,4 +186,3 @@ Project Link: [https://github.com/ZiWang55/Covid_19_Tracker](https://github.com/
 [issues-url]: https://github.com/ZiWang55/repo/issues
 [license-shield]: https://img.shields.io/github/license/ZiWang55/Covid_19_Tracker?style=for-the-badge
 [license-url]: https://github.com/ZiWang55/Covid_19_Tracker/LICENSE.txt
-
