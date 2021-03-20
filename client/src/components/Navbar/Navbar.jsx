@@ -11,6 +11,7 @@ import { Button } from "@material-ui/core";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import HelpIcon from '@material-ui/icons/HelpOutlineRounded';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +42,9 @@ export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
+    <>
+    {props.authentication === "false" ? (
+
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
@@ -53,17 +57,6 @@ export default function ButtonAppBar(props) {
             </Link>
           </Typography>
 
-          <Link to="/settings">
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-            >
-              {" "}
-              <SettingsRoundedIcon fontSize="large" />{" "}
-            </Button>
-          </Link>
-
           <Link to="/newuser">
             {" "}
             <Button
@@ -75,18 +68,57 @@ export default function ButtonAppBar(props) {
             </Button>
           </Link>
 
-          {props.authentication === "false" ? (
             <Modal
               changeUser={props.changeUser}
               handleInputName={props.handleInputName}
               handleInputPassword={props.handleInputPassword}
               title="Login"
             />
-          ) : (
-            <Button className={classes.logbutton} variant='contained' logout={props.logout} title="Logout">Logout</Button>
-          )}
         </Toolbar>
       </AppBar>
     </div>
+    ) 
+    : (
+      <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography color="inherit" className={classes.title}>
+            <Link to="/">
+              <Button  variant="contained"
+              color="primary">
+                <HomeRoundedIcon fontSize="large" />
+              </Button>
+            </Link>
+          </Typography>
+
+          <Link to="/members">
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="primary"
+            >
+              {" "}
+              <HelpIcon fontSize="large" />{" "}
+            </Button>
+          </Link>
+
+          <Link to="/settings">
+            <Button
+              className={classes.button}
+              variant="contained"
+              color="primary"
+            >
+              {" "}
+              <SettingsRoundedIcon fontSize="large" />{" "}
+            </Button>
+          </Link>
+
+          <Button className={classes.logbutton} variant='contained' onClick={props.logout} title="Logout">Logout</Button>
+          
+        </Toolbar>
+      </AppBar>
+    </div>
+    )}
+    </>
   );
 }

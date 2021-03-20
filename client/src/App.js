@@ -61,15 +61,11 @@ function App() {
       setOpt_in(false);
       setUserID(0);
       setAuthenticated(false);
+      console.log('Logged out');
     };
     
     useEffect (() => {
-    console.log("USER NAME IS ", name);
-    console.log("USER EMAIL IS ", email);
-    console.log("USER PASSWORD IS ", password);
-    console.log("USER COUNTY IS ", county);
-    console.log("USER OPT-IN IS ", opt_in);
-    console.log("USER ID IS ", userID);
+    console.log("Logged in as ", name);
   }, [authenticated]);
 
     return (
