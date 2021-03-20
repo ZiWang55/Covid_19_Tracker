@@ -72,17 +72,7 @@ class App extends React.Component {
           <News docs={news.docs} />
          
         </div>
-        {/* <Container> */}
-          {/* <BottomNavigation>
-        <Typography>
-          <CopyrightIcon/>
-          </Typography>
-          </BottomNavigation> */
-          }
-           
              <Footer_new/>
-          
-      {/* </Container> */}
       </div>
     );
   }
