@@ -12,13 +12,13 @@ const Iframe = ( source ) => {
     return (
       <Grid style={{marginTop: 30}} container spacing={3}>
         <Grid item xs={12} md={6}>
-        <iframe title="hospitalized" className={styles.Iframe} src="https://ourworldindata.org/grapher/current-covid-patients-hospital"></iframe>
-        </Grid>
-        <Grid item xs={12} md={6}>
           <iframe title="confirmed" className={styles.Iframe} src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest&pickerSort=desc&pickerMetric=new_cases_per_million&Metric=Confirmed+cases&Interval=7-day+rolling+average&Relative+to+Population=true&Align+outbreaks=false&country=IND~USA~GBR~CAN~DEU~FRA&hideControls=true"></iframe>
         </Grid>
         <Grid item xs={12} md={6}>
           <iframe title="deaths" className={styles.Iframe} src="https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest&pickerSort=desc&pickerMetric=new_deaths_per_million&Metric=Confirmed+deaths&Interval=7-day+rolling+average&Relative+to+Population=true&Align+outbreaks=false&country=IND~USA~GBR~CAN~DEU~FRA&hideControls=true"></iframe>
+        </Grid>
+        <Grid item xs={12} md={6}>
+        <iframe title="hospitalized" className={styles.Iframe} src="https://ourworldindata.org/grapher/current-covid-patients-hospital"></iframe>
         </Grid>
         <Grid item xs={12} md={6}>
           <iframe title="vacs1" className={styles.Iframe} src='https://ourworldindata.org/grapher/us-daily-covid-vaccine-doses-administered?country=Minnesota~California~Colorado~Hawaii~Illinois~GUM~Florida~Maine~New+York+State~Oregon~South+Carolina~Texas~Utah~Virginia~Wisconsin'></iframe>
