@@ -9,6 +9,8 @@ import classNames from "classnames";
 
 import Footer from '../components/Footer/Footer'
 
+import Footer_new from '../components/Footer/Footer_new';
+
 class App extends React.Component {
   state = {
     data: {},
@@ -78,7 +80,7 @@ class App extends React.Component {
           </BottomNavigation> */
           }
            
-             <Footer/>
+             <Footer_new/>
           
       {/* </Container> */}
       </div>
