@@ -41,7 +41,6 @@ function App() {
       .catch(function (err) {
         console.log(err);
       });
-<<<<<<< HEAD
     };
     
     const handleInputName = (event) => {
@@ -82,63 +81,14 @@ function App() {
                       <Route exact path="/newuser" component={NewUser} />
                       <Route exact path="/settings" component={Settings} />
                       <Route exact path="/members" component={Members} />
-                      <Route component={Home} />
+                      <Route exact path="/page404" component={ErrorPage} />
+                      <Route component={ErrorPage} />
                     </Switch>
                 </Wrapper>
             </div>
         </Router>
       </UserContext.Provider>
     );
-=======
-  };
-
-  const handleInputName = (event) => {
-    event.preventDefault();
-    setEmail(event.target.value);
-  };
-
-  const handleInputPassword = (event) => {
-    event.preventDefault();
-    setPassword(event.target.value);
-  };
-
-  const logout = (event) => {
-    setName('');
-    setEmail('');
-    setPassword('');
-    setCounty('');
-    setOpt_in(false);
-    setUserID(0);
-    setAuthenticated(false);
-    console.log('Logged out');
-  };
-
-  useEffect(() => {
-    console.log('Logged in as ', name);
-  }, [authenticated]);
-
-  return (
-    <UserContext.Provider value={{ name, email, password, county, opt_in, userID, authenticated }}>
-      <Router>
-        <div>
-          {authenticated === false ? (
-            <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication='false' />
-          ) : (
-            <Navbar authentication='true' logout={logout} />
-          )}
-          <Wrapper>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/newuser' component={NewUser} />
-            <Route exact path='/settings' component={Settings} />
-            <Route exact path='/members' component={Members} />
-            <Route exact path='/error' component={ErrorPage} />
-          </Wrapper>
-        </div>
-      </Router>
-    </UserContext.Provider>
-  );
->>>>>>> 9932a0cc302f0911c2167ce887f675d2a1175224
 }
 
 export default App;

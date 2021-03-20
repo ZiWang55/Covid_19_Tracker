@@ -18,7 +18,7 @@ function Members() {
     )
     :
     (
-      <Redirect to="/" />
+      <Redirect to="/page404" />
     )}
     </>
   );

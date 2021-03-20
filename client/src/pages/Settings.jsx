@@ -163,7 +163,7 @@ function Settings() {
     :
     (
       <>
-      <Redirect to="/" />
+      <Redirect to="/page404" />
       </>
     )
 }
