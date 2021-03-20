@@ -4,13 +4,13 @@ import Home from './pages/Home';
 import NewUser from './pages/NewUser';
 import Settings from './pages/Settings';
 import Members from './pages/Members';
+import ErrorPage from './pages/ErrorPage';
 import Navbar from './components/Navbar/Navbar';
 import Wrapper from './components/Wrapper/Wrapper';
 import UserContext from './api/UserContext';
 import axios from 'axios';
 
 function App() {
-  
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,15 +19,15 @@ function App() {
   const [userID, setUserID] = useState(0);
   const [authenticated, setAuthenticated] = useState(false);
 
-  const changeUser = event => {
-    event.preventDefault(); 
+  const changeUser = (event) => {
+    event.preventDefault();
 
-    axios.post('/api/login', {
-      email: email,
-      password: password
-    })
+    axios
+      .post('/api/login', {
+        email: email,
+        password: password
+      })
       .then(function (response) {
-
         // If there's an error, log the error
         console.log('post route worked, this is the .then!', response);
         setName(response.data[0].name);
@@ -41,49 +41,54 @@ function App() {
       .catch(function (err) {
         console.log(err);
       });
-    };
-    
-    const handleInputName = (event) => {
-      event.preventDefault();
-      setEmail(event.target.value);
-    };
-    
-    const handleInputPassword = (event) => {
-      event.preventDefault();
-      setPassword(event.target.value);
-    };
-    
-    const logout = event => {
-      setName('');
-      setEmail('');
-      setPassword('');
-      setCounty('');
-      setOpt_in(false);
-      setUserID(0);
-      setAuthenticated(false);
-      console.log('Logged out');
-    };
-    
-    useEffect (() => {
-    console.log("Logged in as ", name);
+  };
+
+  const handleInputName = (event) => {
+    event.preventDefault();
+    setEmail(event.target.value);
+  };
+
+  const handleInputPassword = (event) => {
+    event.preventDefault();
+    setPassword(event.target.value);
+  };
+
+  const logout = (event) => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setCounty('');
+    setOpt_in(false);
+    setUserID(0);
+    setAuthenticated(false);
+    console.log('Logged out');
+  };
+
+  useEffect(() => {
+    console.log('Logged in as ', name);
   }, [authenticated]);
 
-    return (
-      <UserContext.Provider value={{ name, email, password, county, opt_in, userID, authenticated }}>
-        <Router>
-            <div>
-            { authenticated === false ? <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication="false" /> : <Navbar authentication="true" logout={logout} /> }
-                <Wrapper>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/newuser" component={NewUser} />
-                    <Route exact path="/settings" component={Settings} />
-                    <Route exact path="/members" component={Members} />
-                </Wrapper>
-            </div>
-        </Router>
-      </UserContext.Provider>
-    );
+  return (
+    <UserContext.Provider value={{ name, email, password, county, opt_in, userID, authenticated }}>
+      <Router>
+        <div>
+          {authenticated === false ? (
+            <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication='false' />
+          ) : (
+            <Navbar authentication='true' logout={logout} />
+          )}
+          <Wrapper>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/newuser' component={NewUser} />
+            <Route exact path='/settings' component={Settings} />
+            <Route exact path='/members' component={Members} />
+            <Route exact path='/error' component={ErrorPage} />
+          </Wrapper>
+        </div>
+      </Router>
+    </UserContext.Provider>
+  );
 }
 
 export default App;
