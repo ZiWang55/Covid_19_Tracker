@@ -132,7 +132,7 @@ function Settings() {
             <br />
             <FormControlLabel
               control={<Checkbox checked={userSettings.optInEmail} onChange={handleOptInChange} name='optInEmail' color='primary' />}
-              label='Uncheck to opt-out of emails'
+              label='Leave unchecked to opt-out of emails'
             />
           </form>
         </Grid>

@@ -186,4 +186,3 @@ Project Link: [https://github.com/ZiWang55/Covid_19_Tracker](https://github.com/
 [issues-url]: https://github.com/ZiWang55/repo/issues
 [license-shield]: https://img.shields.io/github/license/ZiWang55/Covid_19_Tracker?style=for-the-badge
 [license-url]: https://github.com/ZiWang55/Covid_19_Tracker/LICENSE.txt
-
