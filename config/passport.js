@@ -7,9 +7,9 @@ let masterPass = "";
 
 const Login = require("../models/login");
 
-const validPassword = function(password) {
+const validPassword = function (password) {
   console.log("password, masterPass", password, masterPass);
-  console.log(bcrypt.compareSync(password, masterPass))
+  console.log(bcrypt.compareSync(password, masterPass));
   return bcrypt.compareSync(password, masterPass);
 };
 
@@ -32,7 +32,7 @@ passport.use(
         // If there's no user with the given email
         if (dbUser.length == 1) {
           masterPass = dbUser[0].password;
-          console.log('masterPass on 28', masterPass)
+          console.log("masterPass on 28", masterPass);
 
           if (!validPassword(password)) {
             return done(null, false, {
@@ -53,43 +53,43 @@ passport.use(
   )
 );
 
-/* if (config.use_env_variable) {
-    callbackUrl =
-      "https://ancient-waters-90063.herokuapp.com/auth/facebook/callback";
-  } else {
-    callbackUrl = "http://localhost:8080/auth/facebook/callback";
-  }
-  
-  passport.use(
-    new FacebookStrategy(
-      {
-        // we need to move these to environment variables
-        clientID: process.env.FB_CLIENT_ID,
-        clientSecret: process.env.FB_CLIENT_SECRET,
-        callbackURL: callbackUrl
-      },
-      (accessToken, refreshToken, profile, done) => {
-        db.User.findOrCreate({
-          where: { email: profile.id + "@facebook.com" },
-          defaults: { password: profile.id + "@facebook.com" }
-        }).spread((user, created) => {
-          console.log("profile returned by fb: " + JSON.stringify(profile));
-          console.log(
-            user.get({
-              plain: true
-            })
-          );
-          console.log("profile returned by fb: " + JSON.stringify(profile));
-          console.log(created);
-  
-          done(null, user);
-        });
-      }
-    )
-  ); */
+// if (config.use_env_variable) {
+//   callbackUrl =
+//     "https://covid-track3r-app.herokuapp.com/auth/facebook/callback";
+// } else {
+//   callbackUrl = "http://localhost:3000/auth/facebook/callback";
+// }
+
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       // we need to move these to environment variables
+//       clientID: process.env.FB_CLIENT_ID,
+//       clientSecret: process.env.FB_CLIENT_SECRET,
+//       callbackURL: callbackUrl,
+//     },
+//     (accessToken, refreshToken, profile, done) => {
+//       db.User.findOrCreate({
+//         where: { email: profile.id + "@facebook.com" },
+//         defaults: { password: profile.id + "@facebook.com" },
+//       }).spread((user, created) => {
+//         console.log("profile returned by fb: " + JSON.stringify(profile));
+//         console.log(
+//           user.get({
+//             plain: true,
+//           })
+//         );
+//         console.log("profile returned by fb: " + JSON.stringify(profile));
+//         console.log(created);
+
+//         done(null, user);
+//       });
+//     }
+//   )
+// );
 
 // In order to help keep authentication state across HTTP requests,
-// Sequelize needs to serialize and deserialize the user
+// Mongoose needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
   cb(null, user);
