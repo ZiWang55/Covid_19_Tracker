@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import NewUser from './pages/NewUser';
 import Settings from './pages/Settings';
@@ -75,11 +75,14 @@ function App() {
             <div>
             { authenticated === false ? <Navbar changeUser={changeUser} handleInputName={handleInputName} handleInputPassword={handleInputPassword} authentication="false" /> : <Navbar authentication="true" logout={logout} /> }
                 <Wrapper>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/newuser" component={NewUser} />
-                    <Route exact path="/settings" component={Settings} />
-                    <Route exact path="/members" component={Members} />
+                    <Switch>
+                      <Route exact path="/" component={Home} />
+                      <Route exact path="/home" component={Home} />
+                      <Route exact path="/newuser" component={NewUser} />
+                      <Route exact path="/settings" component={Settings} />
+                      <Route exact path="/members" component={Members} />
+                      <Route component={Home} />
+                    </Switch>
                 </Wrapper>
             </div>
         </Router>
