@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Iframe.module.css';
 import { Grid } from "@material-ui/core";
+import {Footer_new } from '../Footer/Footer_new'
 
 const Iframe = ( source ) => {
 
@@ -28,6 +29,7 @@ const Iframe = ( source ) => {
         <Grid item xs={12}>
           <iframe title="map" className={styles.Iframe} src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa&v=cases#/"></iframe>
         </Grid>
+        
       </Grid>
     );
 };
