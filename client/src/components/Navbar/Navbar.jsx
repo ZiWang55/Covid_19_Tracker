@@ -11,7 +11,7 @@ import { Button } from "@material-ui/core";
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
-import HelpIcon from '@material-ui/icons/HelpOutlineRounded';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,7 +98,7 @@ export default function ButtonAppBar(props) {
               color="primary"
             >
               {" "}
-              <HelpIcon fontSize="large" />{" "}
+              <AssessmentIcon fontSize="large" />{" "}
             </Button>
           </Link>
 
