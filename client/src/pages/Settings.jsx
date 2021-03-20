@@ -89,6 +89,7 @@ function Settings() {
                 color="primary"
                 type="text"
                 name="name"
+                placeholder="Change your name"
                 onChange={handleNameChange}
               />
             </label>
@@ -100,6 +101,7 @@ function Settings() {
                 color="primary"
                 type="email"
                 name="email"
+                placeholder="Change your email"
                 onChange={handleEmailChange}
               />
             </label>
@@ -111,6 +113,7 @@ function Settings() {
                 color="primary"
                 type="password"
                 name="password"
+                placeholder="Change your password"
                 onChange={handlePasswordChange}
               />
             </label>
@@ -122,13 +125,14 @@ function Settings() {
                 color="primary"
                 type="text"
                 name="county"
+                placeholder="Change your county"
                 onChange={handleCountyChange}
               />
             </label>
             <br />
             <FormControlLabel
               control={<Checkbox checked={userSettings.optInEmail} onChange={handleOptInChange} name='optInEmail' color='primary' />}
-              label='Opt-in to emails'
+              label='Leave unchecked to opt-out of emails'
             />
           </form>
         </Grid>
