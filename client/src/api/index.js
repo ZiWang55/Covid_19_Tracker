@@ -47,17 +47,29 @@ export const fetchCountries = async () => {
   }
 };
 
-
 export const fetchVaccine = async () => {
   let totalVacs = 0;
   try {
     const data = await axios.get('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json');
-    console.log(data);
-    for (let i = 0; i < data.data.length; i++) {
-      totalVacs += parseInt(data.data[i].data[data.data[i].data.length - 1].total_vaccinations)
+    // console.log('vac data', data);
+
+    let continents = data.data.filter(
+      (continent) =>
+        continent.country === 'Africa' ||
+        continent.country === 'Asia' ||
+        continent.country === 'North America' ||
+        continent.country === 'South America' ||
+        continent.country === 'Europe' ||
+        continent.country === 'Australia' ||
+        continent.country === 'Antarctica'
+    );
+    // console.log('continents', continents);
+
+    for (let i = 0; i < continents.length; i++) {
+      totalVacs += parseInt(continents[i].data[continents[i].data.length - 1].total_vaccinations);
       /* console.log("our data", data.data[i].data[data.data[i].data.length - 1].total_vaccinations) */
-    };
-    console.log("total", totalVacs)
+    }
+    // console.log('total', totalVacs);
     return totalVacs;
   } catch (error) {
     console.log(error);
