@@ -29,7 +29,6 @@ const Iframe = ( source ) => {
         <Grid item md={12}>
           <iframe title="map" className={styles.Iframe} src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa&v=cases#/"></iframe>
         </Grid>
-        
       </Grid>
     );
 };
