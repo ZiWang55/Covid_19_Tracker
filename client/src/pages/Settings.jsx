@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import { FormControlLabel, Checkbox, TextField, Container, Grid, Button, Typography, ButtonGroup } from '@material-ui/core';
 import UserContext from '../api/UserContext';
 import SaveIcon from '@material-ui/icons/Save';
@@ -18,10 +19,6 @@ function Settings() {
   });
 
   let user = useContext(UserContext);
-  
-  // const onLoad = () => {
-  //   setUserSettings(user);
-  // }
 
   const handleNameChange = (event) => {
     setUserSettings({ ...userSettings, [event.target.name]: event.target.value });
@@ -74,10 +71,14 @@ function Settings() {
       setUserSettings(user);
     }
     onLoad();
-  },[]);
+    console.log("OUR USER CONTEXT IS ", user);
+    // console.log("OUR USER SETTINGS AUTHENTICATION IS ", userSettings.isAuthenticated);
+  },[userSettings]);
 
 
   return (
+    <>
+    {user.authenticated === true ? (
     <Container>
       <Grid container direction='column' justify='center' alignItems='center' style={{ marginTop: '5px' }}>
         <Grid item style={{ margin: "30px" }}>
@@ -158,6 +159,15 @@ function Settings() {
         </Grid>
       </Grid>
     </Container>
+    )
+    :
+    (
+      <>
+      <Redirect to="/page404" />
+      </>
+    )
+}
+</>
   );
 }
 
