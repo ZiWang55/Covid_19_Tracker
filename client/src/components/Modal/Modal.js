@@ -23,40 +23,11 @@ const MyButton = styled(Button)({
   padding: '0 30px',
 });
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    width: '400',
-    backgroundColor: 'grey',
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
-
 export default function SimpleModal(props) {
-  // const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  // const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -77,10 +48,8 @@ export default function SimpleModal(props) {
     aria-describedby="alert-dialog-slide-description"
    
   >
-    {/* <div  style={modalStyle} className={classes.paper}> */}
     <DialogTitle id="alert-dialog-slide-title">{"Login"}</DialogTitle>
-      {/* <h2 id="simple-modal-title">Login</h2> */}
-      {/* <p id="simple-modal-description">test description</p> */}
+
    
       <DialogContent >
           <DialogContentText id="alert-dialog-slide-description">
@@ -93,9 +62,6 @@ export default function SimpleModal(props) {
             fullWidth
             onChange={props.handleInputName}
           />
-          {/* Name:
-          <input type="text" name="nameInput"  />
-        */}
      
         <TextField
             
@@ -106,20 +72,15 @@ export default function SimpleModal(props) {
             fullWidth
             onChange={props.handleInputPassword}
           />
-          {/* Password:
-          <input type="text" name="passwordInput" onChange={props.handleInputPassword} />
-        */}
         
         </DialogContentText>
         </DialogContent>
        
         <DialogActions>
-        {/* <input id="simple-modal-description" type="submit" value="Submit" onClick={props.changeUser} /> */}
         <Button  variant='contained' color='primary'  onClick={props.changeUser}>Login</Button>
         <Button  variant='contained' color='secondary' onClick={handleClose}>Close</Button>
         </DialogActions>                  
-    
-    {/* </div> */}
+
     </Dialog>
     // </Grid>
   );

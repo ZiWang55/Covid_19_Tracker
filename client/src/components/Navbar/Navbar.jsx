@@ -12,6 +12,7 @@ import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const useStyles = makeStyles((theme) => ({
   root: {

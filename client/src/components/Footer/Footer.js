@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="d-flex" id='footer-title'>
                 
-              <p>Covid-19 Tracker</p>
+              <span>Covid-19 Tracker</span>
             </div>
             <div className="d-flex">
               
@@ -69,10 +69,10 @@ const Footer = () => {
                 <LinkedinIcon className="mx-3" size={36} />
               </LinkedinShareButton>
             </div>
-            <p className="pt-3 text-center">
+            <span className="pt-3 text-center">
               Copyright{" "}&copy;
               {" " + new Date().getFullYear() }
-            </p>
+            </span>
           </div>
         </div>
       </div>
