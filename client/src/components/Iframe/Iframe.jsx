@@ -21,10 +21,13 @@ const Iframe = ( source ) => {
         <iframe title="hospitalized" className={styles.Iframe} src="https://ourworldindata.org/grapher/current-covid-patients-hospital"></iframe>
         </Grid>
         <Grid item xs={12} md={6}>
-          <iframe title="vacs1" className={styles.Iframe} src='https://ourworldindata.org/grapher/us-daily-covid-vaccine-doses-administered?country=Minnesota~California~Colorado~Hawaii~Illinois~GUM~Florida~Maine~New+York+State~Oregon~South+Carolina~Texas~Utah~Virginia~Wisconsin'></iframe>
+        <iframe title="vacsWorld" className={styles.Iframe} src="https://ourworldindata.org/grapher/daily-covid-19-vaccination-doses"></iframe>
         </Grid>
-        <Grid item xs={12}>
-          <iframe title="vacs2" className={styles.Iframe} src='https://ourworldindata.org/grapher/us-total-covid-19-vaccine-doses-administered?tab=chart&stackMode=absolute&time=latest&country=Alaska~Arizona~California~Connecticut~Florida~GEO~Hawaii~Illinois~Indiana~Maine~Maryland~Massachusetts~Minnesota~Michigan~Missouri~New%20Jersey~New%20Mexico~New%20York%20State~North%20Carolina~North%20Dakota~Ohio~Oklahoma~Pennsylvania~South%20Dakota~Tennessee~Texas~Vermont~Virginia~Washington~West%20Virginia~Wisconsin&region=World'></iframe>
+        <Grid item xs={12} md={6}>
+          <iframe title="vacsUS1" className={styles.Iframe} src='https://ourworldindata.org/grapher/us-daily-covid-vaccine-doses-administered?country=Minnesota~California~Colorado~Hawaii~Illinois~GUM~Florida~Maine~New+York+State~Oregon~South+Carolina~Texas~Utah~Virginia~Wisconsin'></iframe>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <iframe title="vacsUS2" className={styles.Iframe} src='https://ourworldindata.org/grapher/us-total-covid-19-vaccine-doses-administered?tab=chart&stackMode=absolute&time=latest&country=Alaska~Arizona~California~Connecticut~Florida~GEO~Hawaii~Illinois~Indiana~Maine~Maryland~Massachusetts~Minnesota~Michigan~Missouri~New%20Jersey~New%20Mexico~New%20York%20State~North%20Carolina~North%20Dakota~Ohio~Oklahoma~Pennsylvania~South%20Dakota~Tennessee~Texas~Vermont~Virginia~Washington~West%20Virginia~Wisconsin&region=World'></iframe>
         </Grid>
         <Grid item xs={12}>
           <iframe title="map" className={styles.Iframe} src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa&v=cases#/"></iframe>
