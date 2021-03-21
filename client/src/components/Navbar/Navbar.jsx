@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 10,
   },
+  greeting: {
+    paddingRight: 10
+  },
   logbutton: {
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   border: 0,
@@ -97,7 +100,7 @@ export default function ButtonAppBar(props) {
               </Button>
             </Link>
           </Typography>
-          <Typography>
+          <Typography className={classes.greeting}>
             Hello, {user.name}
           </Typography>
           <Link to="/members">
