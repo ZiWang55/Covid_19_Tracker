@@ -74,6 +74,7 @@ export default function ButtonAppBar(props) {
               handleInputName={props.handleInputName}
               handleInputPassword={props.handleInputPassword}
               title="Login"
+              
             />
         </Toolbar>
       </AppBar>
