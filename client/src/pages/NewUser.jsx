@@ -10,8 +10,11 @@ import {
 } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import GroupIcon from "@material-ui/icons/Group";
+import Snackbar from '../components/Snackbar/Snackbar'
+
 
 function NewUser() {
+  const [open, setOpen] = useState(false);
   const [NewUser, setNewUser] = useState({});
 
   function handleFormSubmit(event) {
@@ -24,6 +27,8 @@ function NewUser() {
     })
       .then((res) => {
         console.log("OUR RES IS ", res);
+        setOpen(true);
+        document.forms['formToClear'].reset();
       })
       .catch((err) => console.log(err));
   }
@@ -46,7 +51,7 @@ function NewUser() {
     <Container>
       <Grid container direction="column" justify="center" alignItems="center">
         <Grid item style={{ margin: "30px" }}>
-          <form className="form-control">
+          <form className="form-control" id='formToClear'>
             <label>
               <Typography> Name:</Typography>
               <TextField
@@ -114,6 +119,7 @@ function NewUser() {
           </ButtonGroup>
         </Grid>
       </Grid>
+      <Snackbar open={open} setOpen={setOpen} msg={'Account created.'}/>
      </Container>
   );
 }
