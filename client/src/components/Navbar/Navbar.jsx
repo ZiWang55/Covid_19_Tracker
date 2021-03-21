@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,6 +13,9 @@ import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import SMTPTransport from "nodemailer/lib/smtp-transport";
+import UserContext from "../../api/UserContext";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ButtonAppBar(props) {
+
+  let user = useContext(UserContext);
   const classes = useStyles();
 
   return (
@@ -92,7 +97,9 @@ export default function ButtonAppBar(props) {
               </Button>
             </Link>
           </Typography>
-
+          <Typography>
+            Hello, {user.name}
+          </Typography>
           <Link to="/members">
             <Button
               className={classes.button}
