@@ -9,37 +9,31 @@ import {
   Button,
   Typography,
   ButtonGroup,
-  SnackbarContent,
+  
 } from "@material-ui/core";
 import UserContext from "../api/UserContext";
 import SaveIcon from "@material-ui/icons/Save";
 import DeleteIcon from "@material-ui/icons/Delete";
 import API from "../api/Users";
 import { useEffect } from "react";
-import Snackbar from "@material-ui/core/Snackbar";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import Snackbar from '../components/Snackbar/Snackbar'
+
+
 
 
 function Settings() {
  
   
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
+  
 
   /*   const classes = useStyles(); */
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [userSettings, setUserSettings] = useState({
-    name: "",
-    email: "",
-    password: "",
-    county: "",
+    name: '',
+    email: '',
+    password: '',
+    county: '',
     optInEmail: true,
     userID: 0,
     isAuthenticated: false,
@@ -52,42 +46,22 @@ function Settings() {
       ...userSettings,
       [event.target.name]: event.target.value,
     });
+    console.log('handle', userSettings)
+    console.log('name', event.target.name)
+    console.log('value', event.target.value)
   };
 
-  const handleEmailChange = (event) => {
+  const handleFormChange = (event) => {
     setUserSettings({
       ...userSettings,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handlePasswordChange = (event) => {
-    setUserSettings({
-      ...userSettings,
-      [event.target.name]: event.target.value,
-    });
-    // console.log(userSettings);
-  };
-
-  const handleCountyChange = (event) => {
-    setUserSettings({
-      ...userSettings,
-      [event.target.name]: event.target.value,
-    });
-    // console.log(userSettings);
-  };
-
-  const handleOptInChange = (event) => {
-    setUserSettings({
-      ...userSettings,
-      [event.target.name]: event.target.checked,
-    });
-    // console.log(userSettings);
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const saveButton = () => {
     //create functionality to save state to database
     console.log("save clicked. userSettings:", userSettings);
+    console.log("save clicked. user:", user);
     API.updateUser(user.userID, {
       name: userSettings.name,
       email: userSettings.email,
@@ -96,7 +70,7 @@ function Settings() {
       opt_in: userSettings.optInEmail,
     })
       .then((res) => {
-        
+        console.log('res b4 setopen', res.data)
         setOpen(true);
         document.forms['formToClear'].reset();
         
@@ -120,7 +94,7 @@ function Settings() {
     onLoad();
     console.log("OUR USER CONTEXT IS ", user);
     // console.log("OUR USER SETTINGS AUTHENTICATION IS ", userSettings.isAuthenticated);
-  }, [userSettings]);
+  }, []);
 
   return (
     <>
@@ -143,7 +117,7 @@ function Settings() {
                     type="text"
                     name="name"
                     placeholder="Change your name"
-                    onChange={handleNameChange}
+                    onChange={handleFormChange}
                   />
                 </label>
                 <br />
@@ -155,7 +129,7 @@ function Settings() {
                     type="email"
                     name="email"
                     placeholder="Change your email"
-                    onChange={handleEmailChange}
+                    onChange={handleFormChange}
                   />
                 </label>
                 <br />
@@ -167,7 +141,7 @@ function Settings() {
                     type="password"
                     name="password"
                     placeholder="Change your password"
-                    onChange={handlePasswordChange}
+                    onChange={handleFormChange}
                   />
                 </label>
                 <br />
@@ -179,7 +153,7 @@ function Settings() {
                     type="text"
                     name="county"
                     placeholder="Change your county"
-                    onChange={handleCountyChange}
+                    onChange={handleFormChange}
                   />
                 </label>
                 <br />
@@ -187,7 +161,7 @@ function Settings() {
                   control={
                     <Checkbox
                       checked={userSettings.optInEmail}
-                      onChange={handleOptInChange}
+                      onChange={handleFormChange}
                       name="optInEmail"
                       color="primary"
                     />
@@ -218,36 +192,7 @@ function Settings() {
             </Grid>
           </Grid>
           <div>
-            <Snackbar
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center",
-              }}
-              open={open}
-              autoHideDuration={3000}
-              onClose={handleClose}
-              
-              action={
-                <React.Fragment>
-                  <IconButton
-                    size="small"
-                    aria-label="close"
-                    color="secondary"
-                    onClick={handleClose}
-                  >
-                    <CloseIcon fontSize="small" />
-                  </IconButton>
-                </React.Fragment>
-              }
-            >
-              <SnackbarContent
-                style={{
-                  backgroundColor: "green",
-                  
-                }}
-                message={<span id="client-snackbar">Account updated. 👍</span>}
-              />
-            </Snackbar>
+            <Snackbar open={open} setOpen={setOpen}/>
 
             
           </div>
