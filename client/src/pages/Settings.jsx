@@ -41,20 +41,17 @@ function Settings() {
 
   let user = useContext(UserContext);
 
-  const handleNameChange = (event) => {
-    setUserSettings({
-      ...userSettings,
-      [event.target.name]: event.target.value,
-    });
-    console.log('handle', userSettings)
-    console.log('name', event.target.name)
-    console.log('value', event.target.value)
-  };
-
-  const handleFormChange = (event) => {
+   const handleFormChange = (event) => {
     setUserSettings({
       ...userSettings,
       [event.target.name]: event.target.value
+    })
+  }
+
+  const handleOptInChange = (event) => {
+    setUserSettings({
+      ...userSettings,
+      [event.target.name]: event.target.checked
     })
   }
 
@@ -161,7 +158,7 @@ function Settings() {
                   control={
                     <Checkbox
                       checked={userSettings.optInEmail}
-                      onChange={handleFormChange}
+                      onChange={handleOptInChange}
                       name="optInEmail"
                       color="primary"
                     />
