@@ -20,7 +20,10 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
 
   const changeUser = (event) => {
-    event.preventDefault();
+    if(event){
+      event.preventDefault()
+    }
+    
 
     axios
       .post('/api/login', {

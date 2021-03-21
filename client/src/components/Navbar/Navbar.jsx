@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,6 +13,9 @@ import PersonAddRoundedIcon from "@material-ui/icons/PersonAddRounded";
 import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import SMTPTransport from "nodemailer/lib/smtp-transport";
+import UserContext from "../../api/UserContext";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: 10,
   },
+  greeting: {
+    paddingRight: 10
+  },
   logbutton: {
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   border: 0,
@@ -40,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ButtonAppBar(props) {
+
+  let user = useContext(UserContext);
   const classes = useStyles();
 
   return (
@@ -74,6 +82,7 @@ export default function ButtonAppBar(props) {
               handleInputName={props.handleInputName}
               handleInputPassword={props.handleInputPassword}
               title="Login"
+              
             />
         </Toolbar>
       </AppBar>
@@ -91,7 +100,9 @@ export default function ButtonAppBar(props) {
               </Button>
             </Link>
           </Typography>
-
+          <Typography className={classes.greeting}>
+            Hello, {user.name}
+          </Typography>
           <Link to="/members">
             <Button
               className={classes.button}
