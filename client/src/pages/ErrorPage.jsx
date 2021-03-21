@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
   doesntExist: {
     fontSize: 20,
     fontFamily: '"Chango", cursive'
+  },
+  covidEmoji: {
+    marginTop: 20,
+    height: 200,
+    width: 200
   }
 }));
 
@@ -44,6 +49,8 @@ function ErrorPage() {
           <Grid item>
             <Typography className={classes.doesntExist}>That page doesn't exist or is not available.</Typography>
           </Grid>
+
+          <img className={classes.covidEmoji} src={emojiImage} alt='emoji' />
         </Grid>
       </Container>
     </div>
