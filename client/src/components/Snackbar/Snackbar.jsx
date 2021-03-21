@@ -39,7 +39,7 @@ function Snack(props) {
         style={{
           backgroundColor: "green",
         }}
-        message={<span id="client-snackbar">Account updated. 👍</span>}
+        message={<span id="client-snackbar">{props.msg} 👍</span>}
       />
     </Snackbar>
   );

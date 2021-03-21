@@ -189,7 +189,7 @@ function Settings() {
             </Grid>
           </Grid>
           <div>
-            <Snackbar open={open} setOpen={setOpen}/>
+            <Snackbar open={open} setOpen={setOpen} msg={'Account updated.'}/>
 
             
           </div>
