@@ -1,6 +1,8 @@
 body {
-    background-color: rgb(250,250,250);
+  background-color: rgb(250, 250, 250);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Chango&display=swap');
 
 /* .container {
     display: flex;
