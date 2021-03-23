@@ -10,16 +10,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/ZiWang55/Covid_19_Tracker">
-    <img src="readme_ss_1.PNG" alt="Logo" width="500" height="500">
-  </a>
+  
 
   <h3 align="center">Covid-19 Tracker</h3>
 
   <p align="center">
     Real time COVID-19 data tracker with login system and email notifications.
-    <br />
-    <a href="https://github.com/ZiWang55/Covid_19_Tracker"><strong>Explore the docs »</strong></a>
+    <!-- <br /> -->
+    <!-- <a href="https://github.com/ZiWang55/Covid_19_Tracker"><strong>Explore the docs »</strong></a> -->
     <br />
     <br />
     <a href="https://covid-track3r-app.herokuapp.com/">View Demo</a>
@@ -30,7 +28,7 @@
   </p>
 </p>
 
-
+![animated_gif](./covidtracker.gif);
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -118,16 +116,6 @@ This is an example of how to list things you need to use the software and how to
    ```
 
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -153,12 +141,11 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
+<br>
 
 <!-- CONTACT -->
-## Contact
+## Live Demo
 
-Your Name - [@doorman_t](https://twitter.com/doorman_t) - troydorman@gmail.com
 
 Project Link: [https://github.com/ZiWang55/Covid_19_Tracker](https://github.com/ZiWang55/Covid_19_Tracker)
 
