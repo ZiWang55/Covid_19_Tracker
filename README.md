@@ -147,7 +147,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Live Demo
 
 
-Project Link: [https://github.com/ZiWang55/Covid_19_Tracker](https://github.com/ZiWang55/Covid_19_Tracker)
+Project Link: [https://covid-track3r-app.herokuapp.com](https://covid-track3r-app.herokuapp.com/)
 
 
 
